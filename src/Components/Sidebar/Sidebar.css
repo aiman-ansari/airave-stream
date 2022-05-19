@@ -1,0 +1,24 @@
+.sidebar{
+    padding: 3rem 0 0 0 ;
+    position: fixed;
+    top: 5%;
+    height: 100vh;
+    background-color:#161618;
+    opacity: 1;
+    width: 7rem;
+}
+.sidebar ul li{
+    color: rgb(244, 244, 244);
+    opacity: 1;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+li:hover{
+    background-color: red;
+}
+li.active{
+    background-color: pink;
+}

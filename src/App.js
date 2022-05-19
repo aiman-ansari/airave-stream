@@ -1,11 +1,21 @@
 import "./App.css";
-import { Home } from "./Pages";
+import { Header } from "./Components/Header/Header"
+import { Sidebar } from "./Components/Sidebar/Sidebar";
 import { Routers } from "./Routers";
 function App() {
   return (
     <div className="app">
-    <Home />
-    <Routers />
+      <Header />
+     <div className="app-container">
+       <div>
+         <Sidebar />
+       </div>
+       <div className="container">
+         <Routers />
+       </div>
+       
+     </div>
+     
     </div>
     );
 }

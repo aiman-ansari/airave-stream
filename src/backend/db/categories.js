@@ -8,20 +8,38 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "Computer Programming",
-    description:
-      "Computer programming is the process of designing and building an executable computer program to accomplish a specific computing",
+    categoryName: "Beaches",
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWnktG3KElSUb4lzxr1DlD6IWSOowp_hEIPFmUKdlIYWQ6bIrYNfGL_FqEhLAq1DloXY4&usqp=CAU'
+    
   },
   {
     _id: uuid(),
-    categoryName: "Frontend Development",
-    description:
-      "Front-end web development, also known as client-side development is the practice of producing HTML, CSS and JavaScript for a website or Web Application",
+    categoryName: "Mountains",
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWnktG3KElSUb4lzxr1DlD6IWSOowp_hEIPFmUKdlIYWQ6bIrYNfGL_FqEhLAq1DloXY4&usqp=CAU'
+    
   },
   {
     _id: uuid(),
-    categoryName: "Backend Development",
-    description:
-      "Backend Development is also known as server-side development. It is everything that the users don't see and contains behind-the-scenes activities that occur when performing any action on a website.",
+    categoryName: "Winter",
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWnktG3KElSUb4lzxr1DlD6IWSOowp_hEIPFmUKdlIYWQ6bIrYNfGL_FqEhLAq1DloXY4&usqp=CAU'
+    
+  },
+  {
+    _id: uuid(),
+    categoryName: "Nature",
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWnktG3KElSUb4lzxr1DlD6IWSOowp_hEIPFmUKdlIYWQ6bIrYNfGL_FqEhLAq1DloXY4&usqp=CAU'
+    
+  },
+  {
+    _id: uuid(),
+    categoryName: "Town",
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWnktG3KElSUb4lzxr1DlD6IWSOowp_hEIPFmUKdlIYWQ6bIrYNfGL_FqEhLAq1DloXY4&usqp=CAU'
+    
+  },
+  {
+    _id: uuid(),
+    categoryName: "Cultural",
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWnktG3KElSUb4lzxr1DlD6IWSOowp_hEIPFmUKdlIYWQ6bIrYNfGL_FqEhLAq1DloXY4&usqp=CAU'
+    
   },
 ];

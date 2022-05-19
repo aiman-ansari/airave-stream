@@ -1,0 +1,12 @@
+.app{
+    background-color: #0e0e0f;
+}
+.app-container{
+    display: flex;
+    gap: 6rem;
+    margin-top: 3rem;
+}
+.container{
+    margin: 1rem;
+    padding: 1rem;
+}

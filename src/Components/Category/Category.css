@@ -1,0 +1,26 @@
+.category{
+    display: flex;
+    gap: 1rem;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.category-item{
+    width: max-content;
+    border: none;
+    border-radius: 10px ;
+    background: black;
+    position: relative;
+}
+.category-item img{
+    width: 9rem;
+    height: 5rem;
+    opacity: 0.5;
+    object-fit: fill;
+}
+.category-item .category-name{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color:white;
+    transform: translate(-50%, -50%);
+}
