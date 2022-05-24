@@ -1,60 +1,70 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import './Header.css'
-import { Sidebar } from '../Sidebar/Sidebar'
-export const Header = () =>{
-    const [navbar, setNavbar] = useState(false)
-    const [open , setOpen] = useState(false)
-    const handleNavbar = () =>{
-        if(window.scrollY >= 3.5){
-            setNavbar(true)
-        }
-        else{
-            setNavbar(false)
-        }
-    }
-    // window.addEventListener("scroll", handleNavbar)
+export const Header = ({open, setOpen}) =>{
     return(
         <>
-            {/* <div className='image'>
-                <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2015/09/sunrise-wakatobi.jpg" />
-            </div>
-         */}
-        {/* <nav className={navbar ? 'active' : ''}> */}
             <nav>
-            <ul>
-            
-                {/* <li onClick={() => setOpen(!open)}>
-                    <i className='bi bi-list'></i>
-                </li> */}
-                <Link to="/">
-                    <li className='nav-text mr-2 text-accent'>Airave Stream</li>
-                </Link>
-                {/* <Link to="/">
-                    <li>Home</li>
-                </Link>
-                <Link to="explore">
-                    <li>Videos</li>
-                </Link>
-                <Link to="playlist">
-                    <li>MyPlaylist</li>
-                </Link> */}
-            </ul>
-            <div>
-                <input 
-                    type="text" 
-                    placeholder='Search here ' 
-                    className='search-input'/>
-            </div>
-            <div>
-                <Link to="login">
-                   <button className='btn-small btn-primary '>Login</button>
-                </Link>
-            </div>
-        </nav>
-        <div>
-            {/* {open ? <Sidebar /> : ''} */}
-        </div>
+                <ul>
+                    <li>
+                        <i className=' bi bi-list menu' onClick={()=>setOpen(!open)}></i>
+                    </li>
+                    <Link to="/">
+                        <li className='nav-text mr-2 text-accent'>Airave Stream</li>
+                    </Link>
+                </ul>
+                <div>
+                    <input 
+                        type="text" 
+                        placeholder='Search here ' 
+                        className='search-input'/>
+                </div>
+                <div>
+                    <Link to="login">
+                    <button className='btn-small btn-primary '>Login</button>
+                    </Link>
+                </div>
+            </nav>
+            <div className={open === true ? "sidebar sidebar-mobile" : "sidebar"}>
+                <ul>
+                    <Link to="/" >
+                    <li>
+                    <span><i className='bi bi-house-fill'></i></span>
+                    <span>Home</span>
+                    </li>
+                    </Link>
+                    <Link to="explore">
+                    <li>
+                    <span><i className='bi bi-globe'></i></span>
+                    <span>Explore</span>
+                    </li>
+                    </Link>
+                    <Link to="playlist">
+                    <li>
+                    <span><i class="bi bi-list-ul"></i></span>
+                    <span>PlayList</span>
+                    </li>
+                    </Link>
+                    <Link to="likes">
+                    <li>
+                    <span><i className='bi bi-heart'></i></span>
+                    <span>Likes</span>
+                    </li>
+                    </Link>
+                    <Link to="watchlater">
+                    <li>
+                    <span><i className='bi bi-clock'></i></span>
+                    <span>Watch later</span>
+                    </li>
+                    </Link>
+                    <Link to="history">
+                    <li>
+                    <span><i class="bi bi-arrow-counterclockwise"></i></span>
+                    <span>History</span>
+                    </li>
+                    </Link>
+                </ul>
+            </div> 
         </>
     )
 }

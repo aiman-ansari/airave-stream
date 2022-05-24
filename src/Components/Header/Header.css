@@ -1,3 +1,8 @@
+:root{
+    --text-gray-dark :rgb(216, 216, 216);
+    --bg-sidebar :  #161618;
+    --bg-sidebar-hover : rgb(46, 46, 46);
+}
 nav{
     display: flex;
     background-color: #161618;
@@ -7,11 +12,11 @@ nav{
     opacity: 1;
     justify-content: space-between;
     position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 99;
-  transition: 0.3s;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+    transition: 0.3s;
 }
 nav.active{
     background-color: rgb(22, 22, 22);
@@ -61,3 +66,67 @@ ul li{
     color: var(--accent-color);
     font-size: 1.2rem;
 }
+.menu{
+    display: none;
+}
+
+.sidebar{
+    padding: 3rem 0 0 0 ;
+    position: relative;
+    top: 5%;
+    height: 100vh;
+    background-color:var(--bg-sidebar);
+    opacity: 1;
+    width: 10rem;
+}
+
+.sidebar ul li{
+    color: var(--text-gray-dark);
+    opacity: 1;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+li:hover{
+    background-color: var(--bg-sidebar-hover);
+}
+.sidebar ul li:hover{
+    color: var(--primary-color);
+}
+
+@media screen and (max-width:500px) {
+    :root{
+        font-size: 12px;
+    }
+    .menu{
+        display: block;
+    }
+    nav{
+        padding: 0 0.9rem;
+        width: 100vw;
+    }
+    .search-input{
+        width: 10rem;
+    }
+    .btn-small{
+        width: 4rem;
+        font-size: 1rem;
+    }
+    .sidebar{
+        display: none;
+        left: -80px;
+
+    }
+    .sidebar-mobile{
+        left: 0%;
+        width: 100vw;
+        position: absolute;
+        z-index: 1;
+        display: flex;
+        justify-content:center;
+    }
+}
+

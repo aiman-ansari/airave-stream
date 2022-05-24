@@ -1,13 +1,18 @@
+:root{
+    --bg-black : black;
+    --text-white : white;
+    --text-gray : rgb(207, 207, 207);
+}
 .image{
     height: 60vh;
     width: 100%;
-    background: black;
-    overflow: hidden;    
+    overflow: hidden; 
+    position: relative;   
 }
-img {
-    height: 60vh;
-    object-fit: fill;
-    opacity: 0.3;
+
+.img {
+    height: 100%;
+    width: 100%;
 }
 .container{
     display: flex;
@@ -19,11 +24,10 @@ img {
     margin: 1.5rem 0 1.5rem 0;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: var(--text-white);
 
 }
-
-hr{
+.bottom-border{
     border-bottom: 5px solid var(--accent-color);
     width: 10rem;
     margin-top: 10px;
@@ -32,18 +36,54 @@ hr{
 .videos-div{
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 .card .img-lg{
-    width: 16rem;
+    width: 15rem;
     opacity: 1;
     height: 10rem;
 }
 .card{
-    width: 16rem;
+    width: 15rem;
+}
+.card:hover{
+    transform: scale(1.1);
+}
+.card-title{
+    color: var(--text-gray);
+    height: 2.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+.card .card-description{
+    color: rgb(165, 165, 165);
+    padding: 0.4rem 0;
 }
 .card .card-bottom{
     display: flex;
     justify-content: space-between;
     font-size: 12px;
-    color: gray;
+    color: var(--text-gray);
+}
+.card .btn{
+    background-color: transparent;
+    margin-bottom: 1rem;
+}
+.btn:hover{
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+@media screen and (max-width:500px){
+    .container{
+        width: 93vw;
+    }
+    .image{
+        margin-top: 4rem;
+        height: 60vh;
+        width: 100%;
+        
+    }
 }

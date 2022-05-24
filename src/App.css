@@ -1,12 +1,24 @@
 .app{
     background-color: #0e0e0f;
+    display: flex;
+    gap: 1rem;
 }
 .app-container{
     display: flex;
-    gap: 6rem;
-    margin-top: 3rem;
+    flex-direction: column;
+    margin-top: 5rem;
+    padding: 0;
 }
-.container{
-    margin: 1rem;
-    padding: 1rem;
+
+@media screen and (max-width:500px){
+    .app{
+        padding: 0;
+            
+    }
+    .app-container{
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+       
+    }
 }
