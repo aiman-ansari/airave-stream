@@ -58,7 +58,7 @@
     overflow: hidden;
 }
 .card .card-description{
-    color: rgb(165, 165, 165);
+    color: var(--text-gray-dark);
     padding: 0.4rem 0;
 }
 .card .card-bottom{
