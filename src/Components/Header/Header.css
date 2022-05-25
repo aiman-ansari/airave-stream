@@ -1,0 +1,129 @@
+:root{
+    --text-gray-dark :rgb(216, 216, 216);
+    --bg-sidebar :  #161618;
+    --bg-sidebar-hover : rgb(46, 46, 46);
+}
+nav{
+    display: flex;
+    background-color: var(--bg-sidebar);
+    height: 3.5rem;
+    align-items: center;
+    padding: 0 5rem 0 7rem;
+    opacity: 1;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+    transition: 0.3s;
+}
+
+.image{
+    height: 70vh;
+    width: 100%;
+    overflow: hidden;    
+}
+img {
+    height: 70vh;
+    width: 100%;
+    object-fit: fill;
+    opacity: 0.3;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    position: sticky;
+}
+ul li{
+    padding: 0 1rem 0 1rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+.search-input{
+    width: 20rem;
+    padding: 0.3rem 1rem;
+    border: 1px solid var(--text-gray-dark); 
+    border-radius: 10px;
+    color: var(--text-white);
+}
+.bold-text{
+    font-size: 1.1rem;
+}
+.btn-small{
+    width:5rem;
+    padding: 0.4rem 1rem 0.4rem 1rem;
+    border: none;
+    border-radius: 10px;
+    color: var(--text-white);
+}
+.nav-text{
+    font-weight: bold;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+.menu{
+    display: none;
+}
+
+.sidebar{
+    padding: 3rem 0 0 0 ;
+    position: relative;
+    top: 5%;
+    height: 100vh;
+    background-color:var(--bg-sidebar);
+    opacity: 1;
+    width: 10rem;
+}
+
+.sidebar ul li{
+    color: var(--text-gray-dark);
+    opacity: 1;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+li:hover{
+    background-color: var(--bg-sidebar-hover);
+}
+.sidebar ul li:hover{
+    color: var(--primary-color);
+}
+
+@media screen and (max-width:500px) {
+    :root{
+        font-size: 12px;
+    }
+    .menu{
+        display: block;
+    }
+    nav{
+        padding: 0 0.9rem;
+        width: 100vw;
+    }
+    .search-input{
+        width: 10rem;
+    }
+    .btn-small{
+        width: 4rem;
+        font-size: 1rem;
+    }
+    .sidebar{
+        display: none;
+        left: -80px;
+
+    }
+    .sidebar-mobile{
+        left: 0%;
+        width: 100vw;
+        position: absolute;
+        z-index: 1;
+        display: flex;
+        justify-content:center;
+    }
+}
+
