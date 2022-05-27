@@ -6,7 +6,7 @@
 nav{
     display: flex;
     background-color: var(--bg-sidebar);
-    height: 3.5rem;
+    height: 4rem;
     align-items: center;
     padding: 0 5rem 0 7rem;
     opacity: 1;
@@ -19,6 +19,7 @@ nav{
     transition: 0.3s;
 }
 
+
 .image{
     height: 70vh;
     width: 100%;
@@ -30,6 +31,7 @@ img {
     object-fit: fill;
     opacity: 0.3;
 }
+
 nav ul {
     list-style: none;
     display: flex;
@@ -69,12 +71,13 @@ ul li{
 
 .sidebar{
     padding: 3rem 0 0 0 ;
-    position: relative;
+    position: fixed;
     top: 5%;
     height: 100vh;
     background-color:var(--bg-sidebar);
     opacity: 1;
-    width: 10rem;
+    width: 7rem;
+    z-index: 99;
 }
 
 .sidebar ul li{
