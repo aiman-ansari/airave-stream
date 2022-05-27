@@ -14,6 +14,7 @@ export const videos = [
     views: "23k",
     date: "Mar 2019",
     creator: "Aaron D",
+    src: "https://www.youtube.com/embed/o3N54qBEzKs",
     isTrending: true
   },
   {
@@ -57,12 +58,13 @@ export const videos = [
   },
   {
     _id: uuid(),
-    title: "Turks and Caicos Fly over by drone Taylor Bay 4k UHD",
-    thumbnail: "https://i3.ytimg.com/vi/o3N54qBEzKs/maxresdefault.jpg",
+    title: "Maldives 4K UHD HDR",
+    thumbnail: "https://img.youtube.com/vi/hCQvPX0DLFM/maxresdefault.jpg",
     categoryName: "Beaches",
-    views: "23k",
-    date: "Mar 2019",
-    creator: "Aaron D",
+    views: "176k",
+    date: "Feb 2022",
+    creator: "Wonders Of Planet Earth 4K | 8K",
+    src:"https://www.youtube.com/embed/hCQvPX0DLFM",
   },
   
   {

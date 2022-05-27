@@ -1,0 +1,40 @@
+.video-container{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: space-between;
+}
+.video{
+    width: 80vw;
+    height: 70vh;
+}
+.container-bottom{
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-white);
+    padding: 1.2rem 0;
+}
+.conatiner-actions ul{
+    display: flex;
+}
+.conatiner-actions ul li{
+    color: var(--text-gray);
+    padding: 0.5rem ;
+}
+.conatiner-actions ul li span{
+    padding: 0.3rem;
+}
+.video-title{
+    font-size: 1.5rem;
+}
+.views{
+    display: flex;
+    color: var(--text-gray-dark);
+    justify-content: space-between;
+}
+.horizontal-line{
+    margin: 1rem 0 1rem 0;
+    width: 100%;
+    border: 1px solid var(--tertiary-color);
+
+}
