@@ -5,7 +5,7 @@
 }
 nav{
     display: flex;
-    background-color: #161618;
+    background-color: var(--bg-sidebar);
     height: 4rem;
     align-items: center;
     padding: 0 5rem 0 7rem;
@@ -17,9 +17,6 @@ nav{
     width: 100%;
     z-index: 99;
     transition: 0.3s;
-}
-nav.active{
-    background-color: rgb(22, 22, 22);
 }
 
 nav ul {
