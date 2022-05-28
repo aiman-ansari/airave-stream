@@ -33,7 +33,7 @@ export const Header = ({open, setOpen}) =>{
                     <span>Home</span>
                     </li>
                     </Link>
-                    <Link to="explore">
+                    <Link to="video">
                     <li>
                     <span><i className='bi bi-globe'></i></span>
                     <span>Explore</span>

@@ -4,6 +4,7 @@ import { useVideo } from "../../Context/VideoContext"
 import {Filter} from '../../Reducer/Filter'
 import './Explore.css'
 import { useState } from "react"
+import { Link } from "react-router-dom"
 export const Explore = () =>{
     const [isActive, setIsActive] = useState('All')
     const { categories} = useCategory()
@@ -40,9 +41,9 @@ export const Explore = () =>{
                     </button>
                 )}
             </div>
-            <div className="video-container">
+            <div className="videos-container">
                 {sorted.map((video)=> 
-                    <div class="card">
+                    <div class="card" key={video._id}>
                         <>
                             <img src={video.thumbnail} class="img-lg"/>
                                 <div class="card-body">
@@ -57,9 +58,11 @@ export const Explore = () =>{
                                         <span>{video.date}</span>
                                     </div>
                                 </div>
-                                <button className='btn btn-outline-primary width-100'>
+                                <Link to={`/video/${video._id}`}>
+                                <button className="btn btn-outline-primary width-100">
                                     Watch Now
                                 </button>
+                                </Link>
                         </>
                     </div>  
                 )}
