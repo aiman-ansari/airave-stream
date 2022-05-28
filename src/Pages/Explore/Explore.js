@@ -5,6 +5,7 @@ import {Filter} from '../../Reducer/Filter'
 import './Explore.css'
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { ToastContainer } from "react-toastify"
 export const Explore = () =>{
     const [isActive, setIsActive] = useState('All')
     const { categories} = useCategory()
@@ -67,6 +68,7 @@ export const Explore = () =>{
                     </div>  
                 )}
             </div>
+            <ToastContainer />
         </div>
     )
 }

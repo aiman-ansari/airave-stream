@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
 import './Header.css'
+import { useAuth } from '../../Context/AuthContext'
 export const Header = ({open, setOpen}) =>{
+    const {isLogin, setIsLogin} = useAuth()
+    const user = localStorage.getItem("user")
+    
     return(
         <>
             <nav>
@@ -20,9 +23,18 @@ export const Header = ({open, setOpen}) =>{
                         className='search-input'/>
                 </div>
                 <div>
-                    <Link to="login">
-                    <button className='btn-small btn-primary '>Login</button>
-                    </Link>
+                    {isLogin && <span>Hie, {user}</span> }
+                    
+                </div>
+                <div>
+                    {isLogin ? 
+                        <i className='bi bi-box-arrow-right' onClick={() => setIsLogin(false)}></i>
+                        :
+                        <Link to="login">
+                            <button className='btn-small btn-primary '>Login</button>
+                        </Link>
+                    }
+                    
                 </div>
             </nav>
             <div className={open === true ? "sidebar sidebar-mobile" : "sidebar"}>
