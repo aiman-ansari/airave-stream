@@ -49,7 +49,8 @@ export const SignUp = () =>{
                 </div>
                 <div class="input-with-icons ">
                     <i class="bi bi-envelope-fill input-icon"></i>
-                    <input type="email" 
+                    <input 
+                    type="email" 
                     placeholder="Enter your Email" 
                     class="icon-input"
                     value={email}
@@ -57,7 +58,8 @@ export const SignUp = () =>{
                 </div>
                 <div class="input-with-icons ">
                     <i class="bi bi-lock-fill input-icon"></i>
-                    <input type="email" 
+                    <input 
+                    type="password" 
                     placeholder="Enter your Password" 
                     class="icon-input"
                     value={password}
