@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import Mockman from 'mockman-js'
 import { Explore, Home , Likes, Login, SignUp, History, WatchLater, Singlevideo, Playlist} from "./Pages";
 export const Routers = () =>{
     return(
@@ -12,6 +13,7 @@ export const Routers = () =>{
             <Route path="watchlater" element={<WatchLater />}></Route>
             <Route path="playlist" element={<Playlist />}></Route>
             <Route path="video/:_id" element={<Singlevideo />}></Route>
+            <Route path="mock" element={<Mockman />}></Route>
         </Routes>
     )
 }
