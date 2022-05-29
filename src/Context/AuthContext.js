@@ -41,7 +41,7 @@ const AuthProvider = ({children}) =>{
                             localStorage.setItem("token", res.data.encodedToken);
                             localStorage.setItem("user",res.data.foundUser.firstName)
                             setTimeout(() => {
-                                navigate('/video')
+                                navigate(-1)
                             },3000)
                         }
             }

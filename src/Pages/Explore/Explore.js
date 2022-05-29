@@ -6,11 +6,15 @@ import './Explore.css'
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
+import { useIconContainer } from "../../Context/IconContainerContext"
+import { IconContainer } from "../../Components/Icons/IconContainer"
+
 export const Explore = () =>{
     const [isActive, setIsActive] = useState('All')
     const { categories} = useCategory()
     const { videos} = useVideo()
     const { state, dispatch} = useFilter()
+    const {show, setShow, setIconContainer, iconContainer} = useIconContainer()
    
     const handleButton = () =>{
         setIsActive('All')
@@ -48,9 +52,23 @@ export const Explore = () =>{
                         <>
                             <img src={video.thumbnail} class="img-lg"/>
                                 <div class="card-body">
-                                    <div class="flex justify-space-between">
-                                        <div class="card-title ">{video.title}</div>
-                                    </div>
+                                    <div className='card-content'>
+                                        <span className="card-title">{video.title}</span>
+                                        {show=== true ? 
+                                                     <i class="bi bi-three-dots-vertical"
+                                                     onClick={() => {
+                                                     setIconContainer(null)
+                                                     setShow(!show)
+                                                     }}></i>
+                                                    :
+                                                    <i class="bi bi-three-dots-vertical"
+                                                    onClick={(_id) => {
+                                                    setIconContainer(video._id)
+                                                    setShow(!show)
+                                                    }}></i>}
+                                                   
+                                                    {iconContainer===video._id ? <IconContainer/> : 
+                                                    '' }                                    </div>
                                     <div class="card-description">
                                         {video.creator}
                                     </div>
