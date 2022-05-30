@@ -7,16 +7,16 @@ import { useLikes } from '../../Context/LikeContext'
 import {  toast,ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { useWatchLater } from '../../Context/WatchLaterContext'
+import { useHistory } from '../../Context/HistoryContext'
 
 export const Singlevideo = () =>{
     const { videos} = useVideo()
     const { _id } = useParams()
     const {addLike, likes, deleteLike} = useLikes()
     const {addWatchLater, watchLater, deleteWatchLater} = useWatchLater()
+    const { addHistory} = useHistory()
     const {isLogin} = useAuth()
     const navigate = useNavigate()
-    console.log(likes)
-    console.log(watchLater)
     const getSingleVideo = videos.filter((item) => item._id===_id)
     const removeFromLike = (item) =>{
         deleteLike(item)
@@ -31,12 +31,21 @@ export const Singlevideo = () =>{
             <div>
                 {getSingleVideo.map((item) => (
                     <>
-                     <iframe 
-                        className='video'
-                        src={item.src}
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                    </iframe>
+                    {isLogin ?
+                        <iframe 
+                            className='video'
+                            src={item.src}
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                            onLoad={() => addHistory(item)}>
+                        </iframe> :
+                        <iframe 
+                            className='video'
+                            src={item.src}
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                    }
                     <div className='flex-col'>
                         <div className='container-bottom'>
                             <div className='video-title'>
