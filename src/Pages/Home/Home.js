@@ -7,7 +7,6 @@ import './Home.css'
 export const Home = () =>{
     const { videos} = useVideo()
     const {show, setShow, setIconContainer, iconContainer} = useIconContainer()
-
     return(
         <>
             
@@ -52,7 +51,7 @@ export const Home = () =>{
                                                     setShow(!show)
                                                     }}></i>}
                                                    
-                                                    {iconContainer===video._id ? <IconContainer/> : 
+                                                    {iconContainer===video._id ? <IconContainer video={video}/> : 
                                                     '' }
 
                                                 </div>

@@ -11,15 +11,12 @@
     bottom: 18%;
 }
 .icon-container ul li{
-    padding-top: 10px;
+    padding: 5px;
 }
 .icon-container li span{
     padding: 0 10px;
     color: var(--text-white);
 }
-.icon-container  span:hover{
-    color: var(--text-primary);
-}
-.icon-container ul li:hover{
-    background-color: transparent;
+.icon-container li:hover{
+    background-color: var(--text-primary);
 }

@@ -6,14 +6,17 @@ import { useAuth } from '../../Context/AuthContext'
 import { useLikes } from '../../Context/LikeContext'
 import {  toast,ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { useWatchLater } from '../../Context/WatchLaterContext'
 
 export const Singlevideo = () =>{
     const { videos} = useVideo()
     const { _id } = useParams()
     const {addLike, likes, deleteLike} = useLikes()
+    const {addWatchLater, watchLater, deleteWatchLater} = useWatchLater()
     const {isLogin} = useAuth()
     const navigate = useNavigate()
     console.log(likes)
+    console.log(watchLater)
     const getSingleVideo = videos.filter((item) => item._id===_id)
     const removeFromLike = (item) =>{
         deleteLike(item)
@@ -57,8 +60,24 @@ export const Singlevideo = () =>{
                                         <span>Like</span>
                                     </li>
                                     <li>
-                                        <i className='bi bi-clock'></i>
-                                        <span>Watch Later</span>
+                                        {isLogin ? 
+                                            (watchLater.some((video) => item._id === video._id) ?
+                                            <>
+                                            <i className='bi bi-clock-fill' 
+                                                onClick={() => deleteWatchLater(item)}>
+                                            </i>
+                                            <span>Remove Watch later</span>
+                                            </>
+                                            :
+                                            <>
+                                            <i className='bi bi-clock' 
+                                                onClick={() => addWatchLater(item)}>
+                                            </i>
+                                            <span>Watch later</span>
+                                            </>
+                                            ):
+                                            <i className='bi bi-clock' onClick={() => navigate('/login')}></i>
+                                        }
                                     </li>
                                     <li>
                                         <i className='bi bi-list'></i>

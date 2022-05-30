@@ -10,6 +10,7 @@ import { AuthProvider } from "./Context/AuthContext";
 import { IconContainer } from "./Components/Icons/IconContainer";
 import { IconContainerProvider } from "./Context/IconContainerContext";
 import { LikeContextProvider } from "./Context/LikeContext";
+import { WatchLaterContextProvider } from "./Context/WatchLaterContext";
 // Call make Server
 makeServer();
 
@@ -23,7 +24,9 @@ ReactDOM.render(
           <AuthProvider>
           <IconContainerProvider>
             <LikeContextProvider>
+              <WatchLaterContextProvider>
         <App />
+        </WatchLaterContextProvider>
         </LikeContextProvider>
         </IconContainerProvider>
         </AuthProvider>
