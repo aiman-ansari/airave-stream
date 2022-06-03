@@ -28,8 +28,13 @@
     justify-content: flex-end;
     gap: 1rem;
 }
+
+.icon-div > div:hover{
+    color: var(--primary-color);
+
 .icon-div i:hover{
     color: var(--text-white);
+
 }
 .icon-div span{
     padding: 10px;

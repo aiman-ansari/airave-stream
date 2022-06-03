@@ -55,20 +55,22 @@ export const Explore = () =>{
                                     <div className='card-content'>
                                         <span className="card-title">{video.title}</span>
                                         {show=== true ? 
-                                                     <i class="bi bi-three-dots-vertical"
-                                                     onClick={() => {
+                                            <i class="bi bi-three-dots-vertical"
+                                                onClick={() => {
                                                      setIconContainer(null)
                                                      setShow(!show)
-                                                     }}></i>
-                                                    :
-                                                    <i class="bi bi-three-dots-vertical"
-                                                    onClick={(_id) => {
+                                                }}>
+                                            </i>
+                                            :
+                                            <i class="bi bi-three-dots-vertical"
+                                                onClick={(_id) => {
                                                     setIconContainer(video._id)
                                                     setShow(!show)
-                                                    }}></i>}
-                                                   
-                                                    {iconContainer===video._id ? <IconContainer/> : 
-                                                    '' }                                    </div>
+                                                }}>
+                                            </i>
+                                        }
+                                        {iconContainer===video._id && <IconContainer video={video}/>   }  
+                                    </div>
                                     <div class="card-description">
                                         {video.creator}
                                     </div>
