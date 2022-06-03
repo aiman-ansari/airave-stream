@@ -1,0 +1,14 @@
+.new{
+    position: relative;
+}
+.hovering{
+    position: absolute;
+    color: aqua;
+    right: 0;
+}
+.new .hovering{
+    visibility: hidden;
+}
+.new:hover .hovering{
+    visibility: visible;
+}

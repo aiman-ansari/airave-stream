@@ -3,10 +3,16 @@ import { useWatchLater } from '../../Context/WatchLaterContext'
 import { useAuth } from '../../Context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { usePlaylist } from '../../Context/PlaylistContext'
+import { useIconContainer } from '../../Context/IconContainerContext'
+import { PlaylistContainer } from '../Playlist/PlaylistContainer'
 
 export const IconContainer = ({video}) =>{
     const { watchLater , addWatchLater, deleteWatchLater} = useWatchLater()
+    const {show1, setShow1, setIconContainer1, iconContainer1} = useIconContainer()
+
     const {isLogin} = useAuth()
+    const { playlist, addPlaylist} = usePlaylist()
     const navigate = useNavigate()
     const removeFromWatchlater = (item) =>{
         deleteWatchLater(item)
@@ -20,9 +26,23 @@ export const IconContainer = ({video}) =>{
         <>
             <div className='icon-container'>
                 <ul>
-                    <li>
-                        <i className='bi bi-list-ul'></i>
-                        <span>Save</span>
+                    <li >
+                    {show1=== true ? 
+                                            <i class="bi bi-list-ul"
+                                                onClick={() => {
+                                                     setIconContainer1(null)
+                                                     setShow1(!show1)
+                                                }}>
+                                            </i>
+                                            :
+                                            <i class="bi bi-list-ul"
+                                                onClick={(_id) => {
+                                                    setIconContainer1(video._id)
+                                                    setShow1(!show1)
+                                                }}>
+                                            </i>
+                                        }
+                                        {show1 && <PlaylistContainer video={video}/>   }  
                     </li>
                     {
                         isLogin ?

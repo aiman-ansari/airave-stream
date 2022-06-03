@@ -1,0 +1,28 @@
+.playlist-container{
+    display: flex;
+    gap:2rem;
+    justify-content: center;
+
+}
+.playlist{
+    background-color: var(--bg-sidebar);
+    cursor: pointer;
+    width: 10rem;
+    height: 10rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--text-primary);
+    border-radius: 5px;
+    color: var(--text-white);
+    position: relative;
+}
+.playlist:hover {
+    transform: scale(1.1);
+}
+.delete{
+    position: absolute;
+    right: 5%;
+    top: 5%;
+}

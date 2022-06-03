@@ -111,7 +111,7 @@ export const addVideoToPlaylistHandler = function (schema, request) {
     const playlistId = request.params.playlistId;
     const { video } = JSON.parse(request.requestBody);
     const playlist = user.playlists.find((item) => item._id === playlistId);
-    if (playlist.videos.some((item) => item.id === video.id)) {
+    if (playlist.videos.some((item) => item.id !== video.id)) {
       return new Response(
         409,
         {},
@@ -142,7 +142,7 @@ export const removeVideoFromPlaylistHandler = function (schema, request) {
     const videoId = request.params.videoId;
     let playlist = user.playlists.find((item) => item._id === playlistId);
     const filteredVideos = playlist.videos.filter(
-      (item) => item._id !== videoId
+      (item) => item._id === videoId
     );
     playlist.videos = filteredVideos;
     return new Response(200, {}, { playlist });

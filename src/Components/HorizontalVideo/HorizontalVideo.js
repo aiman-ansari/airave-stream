@@ -1,11 +1,17 @@
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { useIconContainer } from '../../Context/IconContainerContext'
 import { useLikes } from '../../Context/LikeContext'
+import { usePlaylist } from '../../Context/PlaylistContext'
 import { useWatchLater } from '../../Context/WatchLaterContext'
+import { PlaylistContainer } from '../Playlist/PlaylistContainer'
 import './HorizontalVideo.css'
-export const HorizontalVideo = ({video}) =>{
+export const HorizontalVideo = ({video, item}) =>{
     const {deleteLike, likes, addLike} = useLikes()
     const {deleteWatchLater, watchLater, addWatchLater} = useWatchLater()
+    const {playlist, deleteSinglePlaylist}= usePlaylist()
+    const {show1, setShow1} = useIconContainer()
+    console.log("item", item)
     const removeFromLike = (item) =>{
         deleteLike(item)
         toast.error("Video is removed from liked videos")
@@ -24,6 +30,9 @@ export const HorizontalVideo = ({video}) =>{
     }
     return(
         <div className="horizonatl-card">
+            <button onClick={() => {
+                deleteSinglePlaylist(item, video)
+            }}>delete</button>
             <Link to={`/video/${video._id}`}>
                 <img src={video.thumbnail} className="img-sm"/>
             </Link>
@@ -48,9 +57,12 @@ export const HorizontalVideo = ({video}) =>{
                         }
                         <span>Like</span>
                     </div>
-                    <div>
-                        <i className="bi bi-list-ul"></i>
-                        <span>Save</span>
+                    <div onClick={() => {
+                        setShow1(!show1)
+                        }}>
+                        <i class="bi bi-list-ul"></i>
+                            <span>Save</span>
+                            {show1 && <PlaylistContainer video={video}/>}  
                     </div>
                     <div>
                         {watchLater.some((item) => item._id === video._id) ?
