@@ -1,0 +1,25 @@
+:root{
+    --text-primary : var(--primary-color);
+
+}
+.icon-container{
+    background-color: var(--bg-sidebar);
+    position: absolute;
+    right: 5%;
+    width: 15rem;
+    padding: 0.5rem ;
+    bottom: 18%;
+}
+.icon-container ul li{
+    padding-top: 10px;
+}
+.icon-container li span{
+    padding: 0 10px;
+    color: var(--text-white);
+}
+.icon-container  span:hover{
+    color: var(--text-primary);
+}
+.icon-container ul li:hover{
+    background-color: transparent;
+}

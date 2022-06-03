@@ -7,6 +7,9 @@ import { CategoryProvider } from "./Context/CategoryContext";
 import { VideoProvider } from "./Context/VideoContext";
 import { FilterProvider } from "./Context/FilterContext";
 import { AuthProvider } from "./Context/AuthContext";
+import { IconContainer } from "./Components/Icons/IconContainer";
+import { IconContainerProvider } from "./Context/IconContainerContext";
+import { LikeContextProvider } from "./Context/LikeContext";
 // Call make Server
 makeServer();
 
@@ -18,7 +21,11 @@ ReactDOM.render(
       <VideoProvider>
         <FilterProvider>
           <AuthProvider>
+          <IconContainerProvider>
+            <LikeContextProvider>
         <App />
+        </LikeContextProvider>
+        </IconContainerProvider>
         </AuthProvider>
         </FilterProvider>
       </VideoProvider>

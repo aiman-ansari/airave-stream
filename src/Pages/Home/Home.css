@@ -54,6 +54,11 @@
 }
 .card{
     width: 15rem;
+    padding: 0;
+}
+.card-body{
+    padding: 0;
+    margin-bottom: 1rem;
 }
 .card-title{
     color: var(--text-gray);
@@ -62,8 +67,17 @@
     flex-wrap: wrap;
     overflow: hidden;
 }
-.card .card-description{
-    color: var(--text-gray-dark);
+.card-content{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+}
+.card-content i{
+    color: var(--text-white);
+}
+.card-description{
+    color: rgb(165, 165, 165);
     padding: 0.4rem 0;
 }
 .card .card-bottom{

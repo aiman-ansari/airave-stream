@@ -1,6 +1,9 @@
-.app{
+html{
     background-color: #0e0e0f;
+}
+.app{
     display: flex;
+    height: 100%;
     gap: 1rem;
 }
 .app-container{

@@ -1,11 +1,28 @@
-import { useParams } from 'react-router-dom'
+import { useParams , useNavigate} from 'react-router-dom'
 import { useVideo } from '../../Context/VideoContext'
 import './SingleVideo.css'
 import { MustWatch, Single } from '../../Components/MustWatch/MustWatch'
+import { useAuth } from '../../Context/AuthContext'
+import { useLikes } from '../../Context/LikeContext'
+import {  toast,ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+
 export const Singlevideo = () =>{
     const { videos} = useVideo()
     const { _id } = useParams()
+    const {addLike, likes, deleteLike} = useLikes()
+    const {isLogin} = useAuth()
+    const navigate = useNavigate()
+    console.log(likes)
     const getSingleVideo = videos.filter((item) => item._id===_id)
+    const removeFromLike = (item) =>{
+        deleteLike(item)
+        toast.error("Removed from Like videos")
+    }
+    const addToLike = (item) =>{
+        addLike(item)
+        toast.success("Added to Like videos")
+    }
     return(
         <div className="video-container">
             <div>
@@ -25,7 +42,18 @@ export const Singlevideo = () =>{
                             <div className='conatiner-actions'>
                                 <ul>
                                     <li>
-                                        <i className='bi bi-heart'></i>
+                                        {isLogin ? 
+                                            (likes.some((video) => item._id === video._id) ?
+                                            <i className='bi bi-hand-thumbs-up-fill' 
+                                                onClick={() => removeFromLike(item)}>
+                                            </i>
+                                            :
+                                            <i className='bi bi-hand-thumbs-up' 
+                                                onClick={() => addToLike(item)}>
+                                            </i>
+                                            ):
+                                            <i className='bi bi-hand-thumbs-up' onClick={() => navigate('/login')}></i>
+                                        }
                                         <span>Like</span>
                                     </li>
                                     <li>
@@ -57,6 +85,7 @@ export const Singlevideo = () =>{
                 </div>
             </div>
         </div>
+        <ToastContainer/>
     </div>
     )
 }

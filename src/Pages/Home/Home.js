@@ -1,8 +1,13 @@
+import { useState } from 'react'
 import { Category } from '../../Components/Category/Category'
+import { IconContainer } from '../../Components/Icons/IconContainer'
+import { useIconContainer } from '../../Context/IconContainerContext'
 import { useVideo } from '../../Context/VideoContext'
 import './Home.css'
 export const Home = () =>{
     const { videos} = useVideo()
+    const {show, setShow, setIconContainer, iconContainer} = useIconContainer()
+
     return(
         <>
             
@@ -26,14 +31,32 @@ export const Home = () =>{
                     </div>
                     <div className='videos-div'>
                         {videos.map((video)=> 
-                            <div class="card">
+                            <div class="card" key={video._id}>
                                 {video.isTrending &&
                                     <>
                                         <img src={video.thumbnail} class="img-lg"/>
                                         <div class="card-body">
                                             <div class="flex justify-space-between">
-                                                <div class="card-title ">{video.title}</div>
-                                            </div>
+                                                <div className='card-content'>
+                                                    <span className="card-title">{video.title}</span>
+                                                    {show=== true ? 
+                                                     <i class="bi bi-three-dots-vertical"
+                                                     onClick={() => {
+                                                     setIconContainer(null)
+                                                     setShow(!show)
+                                                     }}></i>
+                                                    :
+                                                    <i class="bi bi-three-dots-vertical"
+                                                    onClick={(_id) => {
+                                                    setIconContainer(video._id)
+                                                    setShow(!show)
+                                                    }}></i>}
+                                                   
+                                                    {iconContainer===video._id ? <IconContainer/> : 
+                                                    '' }
+
+                                                </div>
+                                                </div>
                                             <div class="card-description">{video.creator}</div>
                                             <div className='card-bottom'>
                                             <span class="">{video.views} views</span>
@@ -47,7 +70,9 @@ export const Home = () =>{
                                 }
                             </div>  
                         )}
+
                     </div>
+
                 </div>
             </div>
         </>
