@@ -3,12 +3,24 @@
 }
 .hovering{
     position: absolute;
-    color: aqua;
-    right: 0;
+    right: 0%;
+    padding: 1rem;
+    color: var(--text-white);
 }
 .new .hovering{
     visibility: hidden;
 }
 .new:hover .hovering{
     visibility: visible;
+}
+.empty-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.empty-container div{
+    color: var(--text-gray);
+
 }

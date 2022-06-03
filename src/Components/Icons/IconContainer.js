@@ -26,23 +26,38 @@ export const IconContainer = ({video}) =>{
         <>
             <div className='icon-container'>
                 <ul>
-                    <li >
-                    {show1=== true ? 
-                                            <i class="bi bi-list-ul"
-                                                onClick={() => {
-                                                     setIconContainer1(null)
-                                                     setShow1(!show1)
-                                                }}>
-                                            </i>
-                                            :
-                                            <i class="bi bi-list-ul"
-                                                onClick={(_id) => {
-                                                    setIconContainer1(video._id)
-                                                    setShow1(!show1)
-                                                }}>
-                                            </i>
-                                        }
-                                        {show1 && <PlaylistContainer video={video}/>   }  
+                    <li>
+                    {
+                        isLogin ?
+                        <>
+                        {show1=== true ? 
+                        <i class="bi bi-list-ul"
+                            onClick={() => {
+                                setIconContainer1(null)
+                                setShow1(!show1)
+                        }}>
+                        </i>
+                        :
+                        <i class="bi bi-list-ul"
+                            onClick={(_id) => {
+                                setIconContainer1(video._id)
+                                setShow1(!show1)
+                        }}>
+                        </i>
+}
+                    {show1 && <PlaylistContainer video={video}/>}  
+                        <span>Save</span>
+                        </>
+                        :
+                        <>
+                        <i class="bi bi-list-ul"
+                            onClick={() => {
+                                navigate('/login')
+                        }}>
+                        </i>
+                        <span>Save</span>
+                        </>
+}
                     </li>
                     {
                         isLogin ?

@@ -14,8 +14,6 @@ export const PlaylistContainer = (video) =>{
         setDescription('')
         setTitle('')
     }
-    const a = playlist.map((item) => console.log(item))
-    console.log(a)
     return(
         <div class="playlist-modal">
             <div class="modal-body">
@@ -37,15 +35,16 @@ export const PlaylistContainer = (video) =>{
                                 <input 
                                     className="checkbox-input"
                                     type="checkbox"
-                                        onChange={() => {
+                                    checked={item.videos.some((v) => v.video.id===video.video.id)===true ? true : false}
+                                    onChange={() => {
                                         deleteSinglePlaylist(item, video)
                                     }}/>
                                 :
                                 <input 
-                                className="checkbox-input"
-
-                                type="checkbox"                                        
-                                        onChange={() =>{
+                                    className="checkbox-input"
+                                    type="checkbox"    
+                                    checked={item.videos.some((v) => v.video.id===video.video.id)===true ? true : false}
+                                    onChange={() =>{
                                         addToSinglePlaylist(item, video)
                                     }}/>
                                 }

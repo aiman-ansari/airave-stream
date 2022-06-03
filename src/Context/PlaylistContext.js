@@ -8,8 +8,6 @@ const PlaylistContextProvider = ({children}) =>{
     useEffect(()=>{
         getPlaylist()
     },[])
-    
-    
     const getPlaylist = async() =>{
         var res = await axios.get('/api/user/playlists',
         {

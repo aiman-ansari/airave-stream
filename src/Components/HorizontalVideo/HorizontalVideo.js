@@ -9,9 +9,8 @@ import './HorizontalVideo.css'
 export const HorizontalVideo = ({video, item}) =>{
     const {deleteLike, likes, addLike} = useLikes()
     const {deleteWatchLater, watchLater, addWatchLater} = useWatchLater()
-    const {playlist, deleteSinglePlaylist}= usePlaylist()
+    const { deleteSinglePlaylist}= usePlaylist()
     const {show1, setShow1} = useIconContainer()
-    console.log("item", item)
     const removeFromLike = (item) =>{
         deleteLike(item)
         toast.error("Video is removed from liked videos")
@@ -30,9 +29,6 @@ export const HorizontalVideo = ({video, item}) =>{
     }
     return(
         <div className="horizonatl-card">
-            <button onClick={() => {
-                deleteSinglePlaylist(item, video)
-            }}>delete</button>
             <Link to={`/video/${video._id}`}>
                 <img src={video.thumbnail} className="img-sm"/>
             </Link>
