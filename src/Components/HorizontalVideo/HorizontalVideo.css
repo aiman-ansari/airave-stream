@@ -31,7 +31,7 @@
 
 .icon-div > div:hover{
     color: var(--primary-color);
-
+}
 .icon-div i:hover{
     color: var(--text-white);
 
