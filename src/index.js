@@ -12,6 +12,7 @@ import { IconContainerProvider } from "./Context/IconContainerContext";
 import { LikeContextProvider } from "./Context/LikeContext";
 import { WatchLaterContextProvider } from "./Context/WatchLaterContext";
 import { HistoryContextProvider } from "./Context/HistoryContext";
+
 // Call make Server
 makeServer();
 
@@ -30,6 +31,7 @@ ReactDOM.render(
         <App />
         </HistoryContextProvider>
         </WatchLaterContextProvider>
+        <App />
         </LikeContextProvider>
         </IconContainerProvider>
         </AuthProvider>

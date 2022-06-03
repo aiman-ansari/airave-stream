@@ -11,9 +11,9 @@ export const MustWatch = ({getSingleVideo}) =>{
         <>
             { 
                 getSimilarCategoryVideos.map((video)=> 
-                    <div class="card">
+                    <div class="card" key={video._id}>
                         <>
-                            <img src={video.thumbnail} class="img-lg"/>
+                            <img src={video.thumbnail} alt={video.title} class="img-lg"/>
                                 <div class="card-body">
                                     <div class="flex justify-space-between">
                                         <div class="card-title ">{video.title}</div>
