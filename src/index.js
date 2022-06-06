@@ -11,6 +11,7 @@ import { IconContainer } from "./Components/Icons/IconContainer";
 import { IconContainerProvider } from "./Context/IconContainerContext";
 import { LikeContextProvider } from "./Context/LikeContext";
 import { WatchLaterContextProvider } from "./Context/WatchLaterContext";
+import { HistoryContextProvider } from "./Context/HistoryContext";
 
 // Call make Server
 makeServer();
@@ -26,7 +27,9 @@ ReactDOM.render(
           <IconContainerProvider>
             <LikeContextProvider>
               <WatchLaterContextProvider>
+                <HistoryContextProvider>
         <App />
+        </HistoryContextProvider>
         </WatchLaterContextProvider>
         </LikeContextProvider>
         </IconContainerProvider>

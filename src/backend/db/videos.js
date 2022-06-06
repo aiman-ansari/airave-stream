@@ -14,7 +14,7 @@ export const videos = [
     views: "23k",
     date: "Mar 2019",
     creator: "Aaron D",
-    src: "https://www.youtube.com/embed/o3N54qBEzKs",
+    src: "https://www.youtube.com/embed/o3N54qBEzKs?autoplay=1",
     isTrending: true
   },
   {
@@ -25,6 +25,7 @@ export const videos = [
     views: "23k",
     date: "Mar 2019",
     creator: "Aaron D",
+    src: "https://www.youtube.com/embed/o3N54qBEzKs?autoplay=1",
     isTrending: true,
   },
   {

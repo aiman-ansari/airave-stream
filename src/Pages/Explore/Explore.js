@@ -8,14 +8,16 @@ import { Link } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
 import { useIconContainer } from "../../Context/IconContainerContext"
 import { IconContainer } from "../../Components/Icons/IconContainer"
+import { useHistory } from "../../Context/HistoryContext"
 
 export const Explore = () =>{
     const [isActive, setIsActive] = useState('All')
     const { categories} = useCategory()
     const { videos} = useVideo()
     const { state, dispatch} = useFilter()
+    const { history, addHistory} = useHistory()
     const {show, setShow, setIconContainer, iconContainer} = useIconContainer()
-   
+   console.log("history",history)
     const handleButton = () =>{
         setIsActive('All')
         dispatch({
