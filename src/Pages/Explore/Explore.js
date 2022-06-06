@@ -52,7 +52,7 @@ export const Explore = () =>{
             </div>
             <div className="videos-container">
                 {sorted.map((video)=> 
-                    <div class="card">
+                    <div class="card" key={video._id}>
                         <>
                             <img src={video.thumbnail} class="img-lg"/>
                                 <div class="card-body">
