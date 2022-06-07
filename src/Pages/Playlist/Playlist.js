@@ -13,17 +13,15 @@ export const Playlist = () =>{
                 playlist.length>0 ? <>
                 {
                     playlist.map((item) => 
-                        <div className='playlist'>
-                                                    <Link to={`/playlist/${item._id}`}>
-
-                            {item.videos.length > 0 ? 
-                            <img src={item.videos.map((video) =>video.thumbnail)}
-                            className='playlist-image' />
-                            :
-                            <img src='https://img.freepik.com/free-photo/3d-cartoon-style-red-video-player-icon-with-controler-gray-background-3d-illustration-rendering_37129-2629.jpg?w=2000'
-                            className='playlist-image' />
-                        }
-                            
+                        <div className='playlist' key={item._id}>
+                            <Link to={`/playlist/${item._id}`}>
+                                {item.videos.length > 0 ? 
+                                    <img src={item.videos.map((video) =>video.thumbnail)}
+                                    className='playlist-image' />
+                                    :
+                                    <img src='https://img.freepik.com/free-photo/3d-cartoon-style-red-video-player-icon-with-controler-gray-background-3d-illustration-rendering_37129-2629.jpg?w=2000'
+                                    className='playlist-image' />
+                                }
                             </Link>
                             <div className='playlist-overlay'>
                                 <div className='overlay'>

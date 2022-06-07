@@ -4,12 +4,10 @@ import { useAuth } from '../../Context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { usePlaylist } from '../../Context/PlaylistContext'
-import { useIconContainer } from '../../Context/IconContainerContext'
 import { PlaylistContainer } from '../Playlist/PlaylistContainer'
 
 export const IconContainer = ({video}) =>{
     const { watchLater , addWatchLater, deleteWatchLater} = useWatchLater()
-    const {show1, setShow1, setIconContainer1, iconContainer1} = useIconContainer()
     const {playlistModal, setPlaylistModal} = usePlaylist()
     const {isLogin} = useAuth()
     const navigate = useNavigate()
@@ -26,28 +24,18 @@ export const IconContainer = ({video}) =>{
             <div className='icon-container'>
                 <ul>
                     <li>
-                    {
-                        // isLogin ?
-                        <>
-                        <i class="bi bi-list-ul"
-                            onClick={() => {
-                                setPlaylistModal(true)
-                        }}>
-                        </i>
-
-                    {playlistModal && <PlaylistContainer video={video}/>}  
+                        {
+                            isLogin ? 
+                                <i class="bi bi-list-ul"
+                                    onClick={() => setPlaylistModal(true) }>
+                                </i>
+                            :
+                                <i class="bi bi-list-ul"
+                                    onClick={() => navigate('/login')}>
+                                </i>
+                        }
                         <span>Save</span>
-                        </>
-                        // :
-                        // <>
-                        // <i class="bi bi-list-ul"
-                        //     onClick={() => {
-                        //         navigate('/login')
-                        // }}>
-                        // </i>
-                        // <span>Save</span>
-                        // </>
-}
+                        {playlistModal && <PlaylistContainer video={video}/> }  
                     </li>
                     {
                         isLogin ?
