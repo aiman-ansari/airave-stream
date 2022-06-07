@@ -5,7 +5,7 @@
 }
 nav{
     display: flex;
-    background-color: #161618;
+    background-color: var(--bg-sidebar);
     height: 4rem;
     align-items: center;
     padding: 0 5rem 0 7rem;
@@ -18,8 +18,18 @@ nav{
     z-index: 99;
     transition: 0.3s;
 }
-nav.active{
-    background-color: rgb(22, 22, 22);
+
+
+.image{
+    height: 70vh;
+    width: 100%;
+    overflow: hidden;    
+}
+img {
+    height: 70vh;
+    width: 100%;
+    object-fit: fill;
+    opacity: 0.3;
 }
 
 nav ul {
@@ -36,9 +46,9 @@ ul li{
 .search-input{
     width: 20rem;
     padding: 0.3rem 1rem;
-    border: 1px solid rgb(154, 154, 154); 
+    border: 1px solid var(--text-gray-dark); 
     border-radius: 10px;
-    color: white;
+    color: var(--text-white);
 }
 .bold-text{
     font-size: 1.1rem;
@@ -48,7 +58,7 @@ ul li{
     padding: 0.4rem 1rem 0.4rem 1rem;
     border: none;
     border-radius: 10px;
-    color: white;
+    color: var(--text-white);
 }
 .nav-text{
     font-weight: bold;

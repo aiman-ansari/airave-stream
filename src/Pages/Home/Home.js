@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Category } from '../../Components/Category/Category'
 import { IconContainer } from '../../Components/Icons/IconContainer'
 import { useIconContainer } from '../../Context/IconContainerContext'
@@ -10,6 +9,7 @@ export const Home = () =>{
     return(
         <>
             <div className='container'>
+                <span>checking</span>
             <div className='image'>
                 <iframe 
                 className='img'
@@ -50,14 +50,12 @@ export const Home = () =>{
                                                     setShow(!show)
                                                     }}></i>}
                                                    
-                                                    {iconContainer===video._id ? <IconContainer video={video}/> : 
-                                                    '' }
-
+                                                    {iconContainer===video._id ? <IconContainer video={video}/> : '' }
                                                 </div>
-                                                </div>
+                                            </div>
                                             <div class="card-description">{video.creator}</div>
-                                            <div className='card-bottom'>
-                                            <span class="">{video.views} views</span>
+                                                <div className='card-bottom'>
+                                                <span class="">{video.views} views</span>
                                                 <span>{video.date}</span>
                                             </div>
                                         </div>
@@ -68,9 +66,7 @@ export const Home = () =>{
                                 }
                             </div>  
                         )}
-
                     </div>
-
                 </div>
             </div>
         </>
