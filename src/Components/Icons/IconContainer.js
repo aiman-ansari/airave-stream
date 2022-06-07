@@ -3,9 +3,12 @@ import { useWatchLater } from '../../Context/WatchLaterContext'
 import { useAuth } from '../../Context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { usePlaylist } from '../../Context/PlaylistContext'
+import { PlaylistContainer } from '../Playlist/PlaylistContainer'
 
 export const IconContainer = ({video}) =>{
     const { watchLater , addWatchLater, deleteWatchLater} = useWatchLater()
+    const {playlistModal, setPlaylistModal} = usePlaylist()
     const {isLogin} = useAuth()
     const navigate = useNavigate()
     const removeFromWatchlater = (item) =>{
@@ -21,8 +24,18 @@ export const IconContainer = ({video}) =>{
             <div className='icon-container'>
                 <ul>
                     <li>
-                        <i className='bi bi-list-ul'></i>
+                        {
+                            isLogin ? 
+                                <i class="bi bi-list-ul"
+                                    onClick={() => setPlaylistModal(true) }>
+                                </i>
+                            :
+                                <i class="bi bi-list-ul"
+                                    onClick={() => navigate('/login')}>
+                                </i>
+                        }
                         <span>Save</span>
+                        {playlistModal && <PlaylistContainer video={video}/> }  
                     </li>
                     {
                         isLogin ?

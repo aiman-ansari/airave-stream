@@ -1,13 +1,15 @@
 import { useParams , useNavigate} from 'react-router-dom'
 import { useVideo } from '../../Context/VideoContext'
 import './SingleVideo.css'
-import { MustWatch, Single } from '../../Components/MustWatch/MustWatch'
+import { MustWatch } from '../../Components/MustWatch/MustWatch'
 import { useAuth } from '../../Context/AuthContext'
 import { useLikes } from '../../Context/LikeContext'
 import {  toast,ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { useWatchLater } from '../../Context/WatchLaterContext'
 import { useHistory } from '../../Context/HistoryContext'
+import { PlaylistContainer } from '../../Components/Playlist/PlaylistContainer'
+import { usePlaylist } from '../../Context/PlaylistContext'
 
 export const Singlevideo = () =>{
     const { videos} = useVideo()
@@ -15,7 +17,8 @@ export const Singlevideo = () =>{
     const {addLike, likes, deleteLike} = useLikes()
     const {addWatchLater, watchLater, deleteWatchLater} = useWatchLater()
     const { addHistory} = useHistory()
-    const {isLogin} = useAuth()
+    const {playlistModal, setPlaylistModal} = usePlaylist();
+        const {isLogin} = useAuth()
     const navigate = useNavigate()
     const getSingleVideo = videos.filter((item) => item._id===_id)
     const removeFromLike = (item) =>{
@@ -89,8 +92,13 @@ export const Singlevideo = () =>{
                                         }
                                     </li>
                                     <li>
-                                        <i className='bi bi-list'></i>
-                                        <span>Save</span>
+                                        <i class="bi bi-list-ul" 
+                                        onClick={() => {
+                                            setPlaylistModal(true)
+                                            }}>
+                                            </i>
+                                            <span>Save</span>
+                                            {playlistModal && <PlaylistContainer video={item} /> }  
                                     </li>
                                 </ul>
                             </div>

@@ -9,6 +9,7 @@ import { ToastContainer } from "react-toastify"
 import { useIconContainer } from "../../Context/IconContainerContext"
 import { IconContainer } from "../../Components/Icons/IconContainer"
 import { useHistory } from "../../Context/HistoryContext"
+import { usePlaylist } from "../../Context/PlaylistContext"
 
 export const Explore = () =>{
     const [isActive, setIsActive] = useState('All')
@@ -16,6 +17,7 @@ export const Explore = () =>{
     const { videos} = useVideo()
     const { state, dispatch} = useFilter()
     const { history, addHistory} = useHistory()
+    const { playlist, addPlaylist} = usePlaylist()
     const {show, setShow, setIconContainer, iconContainer} = useIconContainer()
    console.log("history",history)
     const handleButton = () =>{
