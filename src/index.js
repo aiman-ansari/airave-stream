@@ -28,7 +28,6 @@ ReactDOM.render(
               <WatchLaterContextProvider>
         <App />
         </WatchLaterContextProvider>
-        <App />
         </LikeContextProvider>
         </IconContainerProvider>
         </AuthProvider>
