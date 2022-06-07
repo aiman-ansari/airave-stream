@@ -10,9 +10,8 @@ import { PlaylistContainer } from '../Playlist/PlaylistContainer'
 export const IconContainer = ({video}) =>{
     const { watchLater , addWatchLater, deleteWatchLater} = useWatchLater()
     const {show1, setShow1, setIconContainer1, iconContainer1} = useIconContainer()
-
+    const {playlistModal, setPlaylistModal} = usePlaylist()
     const {isLogin} = useAuth()
-    const { playlist, addPlaylist} = usePlaylist()
     const navigate = useNavigate()
     const removeFromWatchlater = (item) =>{
         deleteWatchLater(item)
@@ -28,35 +27,26 @@ export const IconContainer = ({video}) =>{
                 <ul>
                     <li>
                     {
-                        isLogin ?
-                        <>
-                        {show1=== true ? 
-                        <i class="bi bi-list-ul"
-                            onClick={() => {
-                                setIconContainer1(null)
-                                setShow1(!show1)
-                        }}>
-                        </i>
-                        :
-                        <i class="bi bi-list-ul"
-                            onClick={(_id) => {
-                                setIconContainer1(video._id)
-                                setShow1(!show1)
-                        }}>
-                        </i>
-}
-                    {show1 && <PlaylistContainer video={video}/>}  
-                        <span>Save</span>
-                        </>
-                        :
+                        // isLogin ?
                         <>
                         <i class="bi bi-list-ul"
                             onClick={() => {
-                                navigate('/login')
+                                setPlaylistModal(true)
                         }}>
                         </i>
+
+                    {playlistModal && <PlaylistContainer video={video}/>}  
                         <span>Save</span>
                         </>
+                        // :
+                        // <>
+                        // <i class="bi bi-list-ul"
+                        //     onClick={() => {
+                        //         navigate('/login')
+                        // }}>
+                        // </i>
+                        // <span>Save</span>
+                        // </>
 }
                     </li>
                     {

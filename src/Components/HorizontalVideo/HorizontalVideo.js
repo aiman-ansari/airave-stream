@@ -9,8 +9,8 @@ import './HorizontalVideo.css'
 export const HorizontalVideo = ({video, item}) =>{
     const {deleteLike, likes, addLike} = useLikes()
     const {deleteWatchLater, watchLater, addWatchLater} = useWatchLater()
-    const { deleteSinglePlaylist}= usePlaylist()
     const {show1, setShow1} = useIconContainer()
+    const {playlistModal, setPlaylistModal} = usePlaylist()
     const removeFromLike = (item) =>{
         deleteLike(item)
         toast.error("Video is removed from liked videos")
@@ -27,6 +27,8 @@ export const HorizontalVideo = ({video, item}) =>{
         addWatchLater(item)
         toast.success("Video is added to watchlist")
     }
+    console.log("video", video)
+    console.log("show", show1)
     return(
         <div className="horizonatl-card">
             <Link to={`/video/${video._id}`}>
@@ -53,12 +55,15 @@ export const HorizontalVideo = ({video, item}) =>{
                         }
                         <span>Like</span>
                     </div>
-                    <div onClick={() => {
-                        setShow1(!show1)
+                    <div >
+                    <i class="bi bi-list-ul"
+                            onClick={() => {
+                                setPlaylistModal(true)
                         }}>
-                        <i class="bi bi-list-ul"></i>
-                            <span>Save</span>
-                            {show1 && <PlaylistContainer video={video}/>}  
+                        </i>
+
+                    {playlistModal && <PlaylistContainer video={video}/>}  
+                        <span>Save</span>
                     </div>
                     <div>
                         {watchLater.some((item) => item._id === video._id) ?

@@ -1,10 +1,11 @@
 import axios from "axios";
 import { createContext, useContext, useState, useEffect } from "react";
-
+import { toast } from "react-toastify";
 const PlaylistContext = createContext()
 const usePlaylist = () => useContext(PlaylistContext)
 const PlaylistContextProvider = ({children}) =>{
     const [playlist, setPlaylist] = useState([])
+    const [playlistModal, setPlaylistModal] = useState(false)
     useEffect(()=>{
         getPlaylist()
     },[])
@@ -19,17 +20,24 @@ const PlaylistContextProvider = ({children}) =>{
     }
     const addPlaylist = async(title, description) =>{
         const playlist = {title, description}
-        const res = await axios.post('/api/user/playlists',
-        {
-            playlist
-        },
-        {
-            headers:{
-                authorization:localStorage.getItem("token")
-            }
-        })
+        try{
+            const res = await axios.post('/api/user/playlists',
+            {
+                playlist
+            },
+            {
+                headers:{
+                    authorization:localStorage.getItem("token")
+                }
+            })
+            
+            setPlaylist(res.data.playlists)
+            toast.success("Playlist created successfully",{theme:'colored', autoClose:2000})
+        }
+        catch(error){
+            toast.error(error)
+        }
         
-        setPlaylist(res.data.playlists)
     }
     const deletePlaylist = async(playlist) =>{
         const res = await axios.delete(`/api/user/playlists/${playlist._id}`,
@@ -38,11 +46,11 @@ const PlaylistContextProvider = ({children}) =>{
                 authorization:localStorage.getItem("token")
             }
         })
-        console.log("deleted", res.data.playlists)
         setPlaylist(res.data.playlists)
+        toast.error("Playlist deleted",{theme:'colored', autoClose:2000})
     }
-    const addToSinglePlaylist = async(playlistItem, video) =>{
-        const res = await axios.post(`/api/user/playlists/${playlistItem._id}`,
+    const addToSinglePlaylist = async(playlistItem, video, setPlaylist) =>{
+        const res = await axios.post(`/api/user/playlists/${playlistItem}`,
         {
             video
         }
@@ -54,14 +62,15 @@ const PlaylistContextProvider = ({children}) =>{
     })
         const updatedPlayList = playlist.map((playlist) => {
             if (playlist._id === res.data.playlist._id) {
-                return { ...res.data.playlist };
+              return { ...res.data.playlist };
             }
             return playlist;
-        });
-        setPlaylist(updatedPlayList);
+          });
+          setPlaylist(updatedPlayList);
+          toast.success("Video is successfully added", {theme:'colored', autoClose:2000})
 }
-    const deleteSinglePlaylist = async(playlistItem, video) =>{
-        const res = await axios.delete(`/api/user/playlists/${playlistItem._id}/${video._id}`,
+    const deleteSinglePlaylist = async(playlistId, videoId, setPlaylist) =>{
+        const res = await axios.delete(`/api/user/playlists/${playlistId}/${videoId}`,
         {
             headers:{
                 authorization:localStorage.getItem("token")
@@ -69,17 +78,16 @@ const PlaylistContextProvider = ({children}) =>{
         })
         const updatedPlayList = playlist.map((playlist) => {
             if (playlist._id === res.data.playlist._id) {
-                return { ...res.data.playlist };
+              return { ...res.data.playlist };
             }
             return playlist;
           });
-        setPlaylist(updatedPlayList)
-       
+          setPlaylist(updatedPlayList)
+          toast.error("Video is removed from playlist", {theme:'colored', autoClose:2000})
     }
 
-   
     return(
-        <PlaylistContext.Provider value={{addPlaylist, playlist, deletePlaylist, deleteSinglePlaylist,addToSinglePlaylist}}>
+        <PlaylistContext.Provider value={{addPlaylist, playlist,playlistModal, setPlaylistModal, setPlaylist,deletePlaylist, deleteSinglePlaylist,addToSinglePlaylist}}>
             {children}
         </PlaylistContext.Provider>
     )

@@ -1,4 +1,4 @@
-import { Navigate, useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { HorizontalVideo } from "../../Components/HorizontalVideo/HorizontalVideo"
 import { usePlaylist } from "../../Context/PlaylistContext"
 import './SinglePlaylist.css'
@@ -6,7 +6,7 @@ import './SinglePlaylist.css'
 import { ToastContainer } from "react-toastify"
 export const SinglePlaylist = () =>{
     const { _id } = useParams()
-    const {playlist,deleteSinglePlaylist} =usePlaylist()
+    const {playlist,deleteSinglePlaylist, setPlaylist} =usePlaylist()
     const navigate = useNavigate()
     const getSingleVideo = playlist.filter((item) => item._id===_id)
     return(
@@ -21,16 +21,17 @@ export const SinglePlaylist = () =>{
                     {item.videos.length>0 ? 
                     <>
                         <div className="mb-1">Total Videos: {item.videos.length}</div>
-
                         {item.videos.map((video) => 
                         <div className="new">
                             <>
                             <div className="hovering">
-                                <i className="bi bi-trash" onClick={() =>{
-                                    deleteSinglePlaylist(item,video.video)
-                                }}></i>
+                                <i className="bi bi-trash" 
+                                    onClick={() =>
+                                    deleteSinglePlaylist(item._id,video._id, setPlaylist)
+                                }>
+                                </i>
                             </div>
-                            <HorizontalVideo video={video.video} item={item}/>
+                            <HorizontalVideo video={video} item={item}/>
                             </>
                         </div>
                         )}

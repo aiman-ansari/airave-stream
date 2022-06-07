@@ -1,18 +1,22 @@
 import { useState } from "react"
-import { useIconContainer } from "../../Context/IconContainerContext"
 import { usePlaylist } from "../../Context/PlaylistContext"
 import './PlaylistContainer.css'
-export const PlaylistContainer = (video) =>{
-    const { setShow1} = useIconContainer()
+export const PlaylistContainer = ({video}) =>{
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
-    const { playlist, addPlaylist, addToSinglePlaylist, deleteSinglePlaylist} = usePlaylist()
+    const { playlist, addPlaylist, addToSinglePlaylist,setPlaylist, deleteSinglePlaylist, setPlaylistModal,} = usePlaylist()
+    const [ isError, setIsError] = useState('')
     const addToPlaylist = () =>{
-        if(title){
-            addPlaylist(title, description)
+        if(title===''){
+            setIsError('This field cannot be empty')
         }
-        setDescription('')
-        setTitle('')
+        else{
+            addPlaylist(title, description)
+            setIsError('')
+            setDescription('')
+            setTitle('')
+        }
+        
     }
     return(
         <div class="playlist-modal">
@@ -23,49 +27,52 @@ export const PlaylistContainer = (video) =>{
                     :
                     <span className="mb-1">Create new Playlist</span>
                     }
-                    <span><i className="bi bi-x" onClick={() => setShow1(false)}></i></span>
+                    <span><i className="bi bi-x" onClick={() => {
+                        setPlaylistModal(false)}}></i></span>
                 </div>
                 <div className="playlist-title">
-                    {playlist.length>0 
-                    ?
+                    {playlist&&
                         playlist.map((item) => 
                             <div className="playlist-content">
-                                {item.videos.some((v) => v.video.id===video.video.id) 
+                                {item.videos.some((v) => v.id===video.id) 
                                 ? 
                                 <input 
                                     className="checkbox-input"
                                     type="checkbox"
-                                    checked={item.videos.some((v) => v.video.id===video.video.id)===true ? true : false}
+                                    checked={item.videos.some((v) => v.id===video.id) ? true : false}
                                     onChange={() => {
-                                        deleteSinglePlaylist(item, video)
+                                        deleteSinglePlaylist(item._id, video._id, setPlaylist)
                                     }}/>
                                 :
                                 <input 
                                     className="checkbox-input"
                                     type="checkbox"    
-                                    checked={item.videos.some((v) => v.video.id===video.video.id)===true ? true : false}
+                                    checked={item.videos.some((v) => v.id===video.id) ? true : false}
                                     onChange={() =>{
-                                        addToSinglePlaylist(item, video)
+                                        addToSinglePlaylist( item._id, video, setPlaylist)
                                     }}/>
                                 }
                                 <span>{item.title}</span>
                             </div>
                         )
-                    :
-                    ''
                     }
                 </div>
             <input 
                 type="text"
                 className="title"
                 placeholder="Enter title"
+                value={title}
                 onChange={(e) =>setTitle(e.target.value)}>
             </input>
             <input 
                 placeholder="Enter description"
                 className="description"
+                value={description}
                 onChange={(e) =>setDescription(e.target.value)}>
             </input>
+            <div>
+            <div className="text-danger">{isError}</div>
+            </div>
             <div class="modal-action">
                 <button className="btn btn-outline-primary" 
                     onClick={() =>
@@ -73,6 +80,7 @@ export const PlaylistContainer = (video) =>{
                     Create
                 </button>
             </div>
+            
         </div>
     </div>
     )

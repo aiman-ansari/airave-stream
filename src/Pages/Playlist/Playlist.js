@@ -5,26 +5,41 @@ import { useAuth } from '../../Context/AuthContext'
 export const Playlist = () =>{
     const {isLogin} = useAuth()
     const navigate = useNavigate()
-    const { playlist, deletePlaylist} = usePlaylist()
-    const deleteFromPlaylist = (item) =>{
-        deletePlaylist(item)
-    }
+    const { playlist, deletePlaylist } = usePlaylist()
+    
     return(
         <div className='playlist-container'>
             {isLogin ? 
                 playlist.length>0 ? <>
                 {
                     playlist.map((item) => 
-                        <Link to={`/playlist/${item._id}`}>
                         <div className='playlist'>
+                                                    <Link to={`/playlist/${item._id}`}>
+
+                            {item.videos.length > 0 ? 
+                            <img src={item.videos.map((video) =>video.thumbnail)}
+                            className='playlist-image' />
+                            :
+                            <img src='https://img.freepik.com/free-photo/3d-cartoon-style-red-video-player-icon-with-controler-gray-background-3d-illustration-rendering_37129-2629.jpg?w=2000'
+                            className='playlist-image' />
+                        }
+                            
+                            </Link>
+                            <div className='playlist-overlay'>
+                                <div className='overlay'>
+                                    <span>{item.videos.length}</span>
+                                    <i className='bi bi-list-ul'></i>
+                                </div>
+                            </div>
+                            <div className='playlist-bottom'>
+                            <span>{item.title}</span>
                             <div className='delete'>
-                                <i className='bi bi-plus' 
-                                    onClick={() => deleteFromPlaylist(item)}>
+                                <i className='bi bi-trash' 
+                                    onClick={() => deletePlaylist(item)}>
                                 </i>
                             </div>
-                            <span>{item.title}</span>
+                            </div>
                         </div>
-                        </Link>
                     )}
                </>
                :
@@ -37,7 +52,7 @@ export const Playlist = () =>{
                     Login
                 </button>
             </div>
-        }
+        } 
     </div>
     )
 }
