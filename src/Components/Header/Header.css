@@ -29,7 +29,6 @@ img {
     height: 70vh;
     width: 100%;
     object-fit: fill;
-    opacity: 0.3;
 }
 
 nav ul {
@@ -96,7 +95,27 @@ li:hover{
 .sidebar ul li:hover{
     color: var(--primary-color);
 }
-
+.profile{
+    /* margin-top: 5rem; */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+.profile-content{
+    position: absolute;
+    visibility: hidden;
+    margin-right: 10rem;
+    /* right: -5%; */
+    margin-top: 2rem;
+    padding: 10px;
+    /* display: none; */
+}
+.profile:hover .profile-content{
+    visibility: visible;
+    /* display: block; */
+}
 @media screen and (max-width:500px) {
     :root{
         font-size: 12px;

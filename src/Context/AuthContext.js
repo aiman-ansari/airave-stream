@@ -39,7 +39,7 @@ const AuthProvider = ({children}) =>{
                         if(res.status== 200 || res.status== 201){
                             setIsLogin(true)
                             localStorage.setItem("token", res.data.encodedToken);
-                            localStorage.setItem("user",res.data.foundUser.firstName)
+                            localStorage.setItem("user",res.data.foundUser.firstName + " " + res.data.foundUser.lastName)
                             setTimeout(() => {
                                 navigate(-1)
                             },3000)

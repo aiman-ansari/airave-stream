@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
 import './Header.css'
 import { useAuth } from '../../Context/AuthContext'
+import { Profile } from '../Profile/Profile'
 export const Header = ({open, setOpen}) =>{
     const {isLogin, setIsLogin} = useAuth()
     const user = localStorage.getItem("user")
-    
+    const getFirstChar = user.split(' ')
+    const firstChar= getFirstChar.map((item) => item.charAt(0))
     return(
         <>
             <nav>
@@ -23,17 +25,18 @@ export const Header = ({open, setOpen}) =>{
                         className='search-input'/>
                 </div>
                 <div>
-                    {isLogin && <span>Hie, {user}</span> }
-                    
-                </div>
-                <div>
-                    {isLogin ? 
-                        <i className='bi bi-box-arrow-right' onClick={() => setIsLogin(false)}></i>
-                        :
-                        <Link to="login">
-                            <button className='btn-small btn-primary '>Login</button>
-                        </Link>
-                    }
+                        <div className='profile'>
+                            {isLogin ? 
+                                <div class="avatar avatar-xsm avatar-green flex-align-center">{firstChar}</div>   
+                                :
+                                <img class="avatar avatar-xsm" src="https://avatarfiles.alphacoders.com/715/71560.jpg"/>
+
+                        }
+                            <div className='profile-content'>
+                                <Profile/>
+                            </div>
+                        </div>
+                        
                     
                 </div>
             </nav>
