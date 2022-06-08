@@ -34,7 +34,7 @@
   color: var(--text-white);
 }
 .bottom-border {
-  border-bottom: 5px solid var(--accent-color);
+  border-bottom: 5px solid var(--text-accent-color);
   width: 10rem;
   margin-top: 10px;
 }
@@ -54,7 +54,7 @@
 .card {
   width: 15rem;
   padding: 0;
-  background-color: var(--bg-sidebar);
+  background-color: var(--bg-sidebar-hover);
 }
 .card-body {
   padding: 10px;
@@ -95,12 +95,20 @@
 }
 
 @media screen and (max-width: 500px) {
+  :root {
+    font-size: 12px;
+  }
   .container {
-    width: 93vw;
+    padding: 0;
+    margin: 0;
   }
   .image {
     margin-top: 4rem;
     height: 60vh;
     width: 100%;
+  }
+  .videos-div {
+    gap: 1rem;
+    width: 100vw;
   }
 }

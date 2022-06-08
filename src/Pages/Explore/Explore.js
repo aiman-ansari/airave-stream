@@ -15,7 +15,7 @@ export const Explore = () => {
   const { show, setShow, setIconContainer, iconContainer } = useIconContainer();
   const sortedVideos = Filter(videos, state);
   return (
-    <div className='m-2'>
+    <div className='explore-container'>
       <div className='category-container'>
         <button
           className={

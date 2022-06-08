@@ -1,26 +1,33 @@
-.new{
-    position: relative;
+.new {
+  position: relative;
 }
-.hovering{
-    position: absolute;
-    right: 0%;
-    padding: 1rem;
-    color: var(--text-white);
+.hovering {
+  position: absolute;
+  right: 0%;
+  padding: 1rem;
+  color: var(--text-white);
 }
-.new .hovering{
-    visibility: hidden;
+.new .hovering {
+  visibility: hidden;
 }
-.new:hover .hovering{
-    visibility: visible;
+.new:hover .hovering {
+  visibility: visible;
 }
-.empty-container{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+.empty-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
-.empty-container div{
-    color: var(--text-gray);
-
+.empty-container div {
+  color: var(--text-gray);
+}
+.text-gray {
+  color: var(--text-gray-dark);
+}
+@media screen and (max-width: 500px) {
+  .like-container {
+    margin-top: 2rem;
+  }
 }

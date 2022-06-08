@@ -1,0 +1,10 @@
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.info-container .btn {
+  width: 10rem;
+  background-color: var(--text-accent-color);
+}

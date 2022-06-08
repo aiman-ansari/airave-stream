@@ -3,6 +3,7 @@
   gap: 1rem;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  padding: 0;
 }
 .category-item {
   width: max-content;
@@ -22,9 +23,14 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  color: white;
+  color: var(--text-white);
   transform: translate(-50%, -50%);
 }
 .category-item:hover {
   transform: scale(1.2);
+}
+@media screen and (max-width: 500px) {
+  .category {
+    width: 100%;
+  }
 }
