@@ -1,108 +1,106 @@
-:root{
-    --bg-black : black;
-    --text-white : white;
-    --text-gray : rgb(207, 207, 207);
+:root {
+  --bg-black: black;
+  --text-white: rgb(255, 255, 255);
+  --text-gray: rgb(174, 174, 174);
+  --text-gray-light: rgb(201, 201, 201);
 }
-.image{
-    height: 60vh;
-    width: 96%;
-    display: flex;
-    padding-left: 2rem;
-    justify-content: center;
-    overflow: hidden; 
-  
+.image {
+  height: 60vh;
+  width: 96%;
+  display: flex;
+  padding-left: 2rem;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .img {
-    height: 100%;
-    width: 100%;
-}
-.container{
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding: 1rem;
-}
-.container .bold-text{
-    display: flex;
-    flex-direction: column;
-    margin: 1.5rem 0 1.5rem 0;
-    justify-content: center;
-    align-items: center;
-    color: var(--text-white);
-
-}
-.bottom-border{
-    border-bottom: 5px solid var(--accent-color);
-    width: 10rem;
-    margin-top: 10px;
-
-}
-.videos-div{
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    gap: 1rem;
-    width: 100%;
-    overflow: hidden;
-}
-.card .img-lg{
-    width: 15rem;
-    opacity: 1;
-    height: 10rem;
-}
-.card{
-    width: 15rem;
-    padding: 0;
-}
-.card-body{
-    padding: 0;
-    margin-bottom: 1rem;
-}
-.card-title{
-    color: var(--text-gray);
-    height: 2.6rem;
-    display: flex;
-    flex-wrap: wrap;
-    overflow: hidden;
-}
-.card-content{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    gap: 10px;
-}
-.card-content i{
-    color: var(--text-white);
-}
-.card-description{
-    color: rgb(165, 165, 165);
-    padding: 0.4rem 0;
-}
-.card .card-bottom{
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    color: var(--text-gray);
-}
-.card .btn{
-    background-color: transparent;
-    margin-bottom: 1rem;
-}
-.btn:hover{
-    background-color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+  height: 100%;
+  width: 100%;
 }
 
-@media screen and (max-width:500px){
-    .container{
-        width: 93vw;
-    }
-    .image{
-        margin-top: 4rem;
-        height: 60vh;
-        width: 100%;
-        
-    }
+.container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+.container .bold-text {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem 0 1.5rem 0;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-white);
+}
+.bottom-border {
+  border-bottom: 5px solid var(--accent-color);
+  width: 10rem;
+  margin-top: 10px;
+}
+.videos-div {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  overflow: hidden;
+}
+.card .img-lg {
+  width: 15rem;
+  opacity: 1;
+  height: 10rem;
+}
+.card {
+  width: 15rem;
+  padding: 0;
+  background-color: var(--bg-sidebar);
+}
+.card-body {
+  padding: 10px;
+  margin-bottom: 1rem;
+}
+.card-title {
+  color: var(--text-white);
+  height: 2.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+}
+.card-content i {
+  color: var(--text-white);
+}
+.card-description {
+  color: var(--text-gray);
+  padding: 0.4rem 0;
+}
+.card .card-bottom {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-gray-light);
+}
+.card .btn {
+  background-color: transparent;
+}
+.btn:hover {
+  background-color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    width: 93vw;
+  }
+  .image {
+    margin-top: 4rem;
+    height: 60vh;
+    width: 100%;
+  }
 }
