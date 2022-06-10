@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { useAuth } from "../../Context/AuthContext";
 import "./Profile.css";
 export const Profile = () => {
   const { isLogin, setIsLogin } = useAuth();
   const user = localStorage.getItem("user");
+  const logout = () => {
+    setIsLogin(false);
+    toast.info("logout...", { theme: "colored", autoClose: 2000 });
+  };
   return (
     <div className='profile-container'>
       <span className='text-gray'>
@@ -15,13 +19,7 @@ export const Profile = () => {
       {isLogin ? (
         <button
           className='btn btn-outline-primary width-100 mt-1'
-          onClick={() => {
-            setIsLogin(false);
-            toast.info("Logging out...", {
-              theme: "colored",
-              autoClose: 2000,
-            });
-          }}
+          onClick={() => logout()}
         >
           Logout
         </button>
@@ -32,6 +30,7 @@ export const Profile = () => {
           </button>
         </Link>
       )}
+      <ToastContainer />
     </div>
   );
 };

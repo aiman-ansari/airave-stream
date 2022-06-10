@@ -4,8 +4,7 @@ import { Profile } from "../Profile/Profile";
 import "./Header.css";
 
 export const Header = () => {
-  const { isLogin } = useAuth();
-  const user = localStorage.getItem("user");
+  const { isLogin, user } = useAuth();
   return (
     <>
       <nav>
@@ -24,16 +23,10 @@ export const Header = () => {
 
         <div>
           <div className='profile'>
-            {isLogin ? (
-              <div className='avatar avatar-xsm avatar-green flex-align-center'>
-                {user.split(" ").map((item) => item.charAt(0))}
-              </div>
-            ) : (
-              <img
-                className='avatar avatar-xsm'
-                src='https://avatarfiles.alphacoders.com/715/71560.jpg'
-              />
-            )}
+            <img
+              className='avatar avatar-xsm'
+              src='https://avatarfiles.alphacoders.com/715/71560.jpg'
+            />
             <div className='profile-content'>
               <Profile />
             </div>

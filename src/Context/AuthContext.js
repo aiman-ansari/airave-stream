@@ -35,7 +35,6 @@ const AuthProvider = ({ children }) => {
   };
   const handleLoginData = async (email, password) => {
     const getLoginValues = { email, password };
-    const getUser = localStorage.getItem("user");
     try {
       const res = await axios.post("/api/auth/login", getLoginValues);
       if (res.status == 200 || res.status == 201) {
@@ -45,24 +44,24 @@ const AuthProvider = ({ children }) => {
           "user",
           res.data.foundUser.firstName + " " + res.data.foundUser.lastName
         );
-        toast.info(`Welcome ${getUser}`, {
+        toast.info(`Welcome ${user}`, {
           theme: "colored",
           autoClose: 2000,
         });
       }
     } catch (error) {
-      if (error) {
+      if (error.response.status == 404) {
         toast.error("Email is not register", {
           theme: "colored",
           autoClose: 2000,
         });
       }
-      // if (error.response.status == 401) {
-      //   toast.error("Password does not match", {
-      //     theme: "colored",
-      //     autoClose: 2000,
-      //   });
-      // }
+      if (error.response.status == 401) {
+        toast.error("Password does not match", {
+          theme: "colored",
+          autoClose: 2000,
+        });
+      }
     }
   };
 
@@ -75,6 +74,7 @@ const AuthProvider = ({ children }) => {
         handleLoginData,
         user,
         token,
+        user,
       }}
     >
       {children}
