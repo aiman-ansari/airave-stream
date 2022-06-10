@@ -15,17 +15,14 @@ export const MustWatch = ({ getSingleVideo }) => {
           .filter((item) => item._id !== _id)
           .map((video) => (
             <div class='card' key={video._id}>
-              <Link to='/login'>
-                <img
-                  src={video.thumbnail}
-                  class='img-lg'
-                  alt={video.title}
-                  onClick={() => {
-                    alert("clicked");
-                    // navigate(`/video/${video._id}`)
-                  }}
-                />
-              </Link>
+              <img
+                src={video.thumbnail}
+                class='img-lg'
+                alt={video.title}
+                onClick={() => {
+                  navigate(`/video/${video._id}`);
+                }}
+              />
               <div class='card-body'>
                 <div className='card-content'>
                   <span className='card-title'>{video.title}</span>

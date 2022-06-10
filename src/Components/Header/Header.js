@@ -6,8 +6,6 @@ import "./Header.css";
 export const Header = () => {
   const { isLogin } = useAuth();
   const user = localStorage.getItem("user");
-  const getFirstChar = user.split(" ");
-  const firstChar = getFirstChar.map((item) => item.charAt(0));
   return (
     <>
       <nav>
@@ -28,7 +26,7 @@ export const Header = () => {
           <div className='profile'>
             {isLogin ? (
               <div className='avatar avatar-xsm avatar-green flex-align-center'>
-                {firstChar}
+                {user.split(" ").map((item) => item.charAt(0))}
               </div>
             ) : (
               <img

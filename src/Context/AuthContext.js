@@ -51,18 +51,18 @@ const AuthProvider = ({ children }) => {
         });
       }
     } catch (error) {
-      if (error.response.status == 404) {
+      if (error) {
         toast.error("Email is not register", {
           theme: "colored",
           autoClose: 2000,
         });
       }
-      if (error.response.status == 401) {
-        toast.error("Password does not match", {
-          theme: "colored",
-          autoClose: 2000,
-        });
-      }
+      // if (error.response.status == 401) {
+      //   toast.error("Password does not match", {
+      //     theme: "colored",
+      //     autoClose: 2000,
+      //   });
+      // }
     }
   };
 
