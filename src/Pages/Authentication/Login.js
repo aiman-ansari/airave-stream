@@ -13,8 +13,8 @@ export const Login = () => {
   const [error, setError] = useState(false);
   const [message, setMessage] = useState("");
   const test = {
-    email: "testuser@gmail.com",
-    password: "testuser123",
+    email: "adarshbalika@gmail.com",
+    password: "adarshBalika123",
   };
   const handleSubmit = () => {
     if (email && password) {
