@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import "./Header.css";
 import { useAuth } from "../../Context/AuthContext";
 import { Profile } from "../Profile/Profile";
+import "./Header.css";
+
 export const Header = () => {
   const { isLogin } = useAuth();
   const user = localStorage.getItem("user");
@@ -22,15 +23,16 @@ export const Header = () => {
             className='search-input'
           />
         </div>
+
         <div>
           <div className='profile'>
             {isLogin ? (
-              <div class='avatar avatar-xsm avatar-green flex-align-center'>
+              <div className='avatar avatar-xsm avatar-green flex-align-center'>
                 {firstChar}
               </div>
             ) : (
               <img
-                class='avatar avatar-xsm'
+                className='avatar avatar-xsm'
                 src='https://avatarfiles.alphacoders.com/715/71560.jpg'
               />
             )}
@@ -57,7 +59,7 @@ export const Header = () => {
           </Link>
           <Link to='playlist'>
             <li>
-              <i class='bi bi-list-ul'></i>
+              <i className='bi bi-list-ul'></i>
 
               <span>PlayList</span>
             </li>
@@ -78,8 +80,7 @@ export const Header = () => {
           </Link>
           <Link to='history'>
             <li>
-              <i class='bi bi-arrow-counterclockwise'></i>
-
+              <i className='bi bi-arrow-counterclockwise'></i>
               <span>History</span>
             </li>
           </Link>

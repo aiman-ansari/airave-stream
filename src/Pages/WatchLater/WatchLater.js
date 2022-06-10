@@ -4,7 +4,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { HorizontalVideo } from "../../Components/HorizontalVideo/HorizontalVideo";
 import { useWatchLater } from "../../Context/WatchLaterContext";
 import { useAuth } from "../../Context/AuthContext";
-import { useNavigate } from "react-router-dom";
 import {
   EmptyContainer,
   LoginInfo,
@@ -12,7 +11,6 @@ import {
 export const WatchLater = () => {
   const { watchLater } = useWatchLater();
   const { isLogin } = useAuth();
-  const navigate = useNavigate();
   return (
     <div className='like-container'>
       {isLogin ? (
@@ -23,7 +21,7 @@ export const WatchLater = () => {
               <div className='bottom-border'></div>
             </div>
             {watchLater.map((video) => (
-              <HorizontalVideo video={video} />
+              <HorizontalVideo video={video} key={video._id} />
             ))}
           </>
         ) : (

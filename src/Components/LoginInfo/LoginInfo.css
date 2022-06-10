@@ -4,7 +4,16 @@
   justify-content: center;
   align-items: center;
 }
-.info-container .btn {
+.info-container .button {
   width: 10rem;
+  padding: 12px;
+  border: none;
+  color: var(--text-white);
+  border-radius: 10px;
+  cursor: pointer;
   background-color: var(--text-accent-color);
+}
+.info-container .button:hover {
+  background-color: transparent;
+  border: 2px solid var(--text-accent-color);
 }

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import { useAuth } from "../../Context/AuthContext";
 import "./Profile.css";
 export const Profile = () => {
@@ -14,7 +15,13 @@ export const Profile = () => {
       {isLogin ? (
         <button
           className='btn btn-outline-primary width-100 mt-1'
-          onClick={() => setIsLogin(false)}
+          onClick={() => {
+            setIsLogin(false);
+            toast.info("Logging out...", {
+              theme: "colored",
+              autoClose: 2000,
+            });
+          }}
         >
           Logout
         </button>

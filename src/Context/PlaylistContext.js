@@ -34,7 +34,7 @@ const PlaylistContextProvider = ({ children }) => {
       );
 
       setPlaylist(res.data.playlists);
-      toast.success("Playlist created successfully", {
+      toast.info("Playlist created successfully", {
         theme: "colored",
         autoClose: 2000,
       });

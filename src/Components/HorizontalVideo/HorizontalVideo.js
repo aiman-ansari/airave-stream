@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
-import { useIconContainer } from "../../Context/IconContainerContext";
 import { useLikes } from "../../Context/LikeContext";
 import { usePlaylist } from "../../Context/PlaylistContext";
 import { useWatchLater } from "../../Context/WatchLaterContext";
@@ -9,24 +7,7 @@ import "./HorizontalVideo.css";
 export const HorizontalVideo = ({ video, item }) => {
   const { deleteLike, likes, addLike } = useLikes();
   const { deleteWatchLater, watchLater, addWatchLater } = useWatchLater();
-  const { show1, setShow1 } = useIconContainer();
   const { playlistModal, setPlaylistModal } = usePlaylist();
-  const removeFromLike = (item) => {
-    deleteLike(item);
-    toast.error("Video is removed from liked videos");
-  };
-  const addToLike = (item) => {
-    addLike(item);
-    toast.success("Video is added to liked videos");
-  };
-  const removeFromWatchlater = (item) => {
-    deleteWatchLater(item);
-    toast.error("Video is removed from watchlist");
-  };
-  const addToWatchlater = (item) => {
-    addWatchLater(item);
-    toast.success("Video is added to watchlist");
-  };
   return (
     <div className='horizonatl-card'>
       <Link to={`/video/${video._id}`}>
@@ -40,19 +21,19 @@ export const HorizontalVideo = ({ video, item }) => {
             {likes.some((item) => item._id === video._id) ? (
               <i
                 className='bi bi-hand-thumbs-up-fill'
-                onClick={() => removeFromLike(video)}
+                onClick={() => deleteLike(video)}
               ></i>
             ) : (
               <i
                 className='bi bi-hand-thumbs-up'
-                onClick={() => addToLike(video)}
+                onClick={() => addLike(video)}
               ></i>
             )}
             <span>Like</span>
           </div>
           <div>
             <i
-              class='bi bi-list-ul'
+              className='bi bi-list-ul'
               onClick={() => {
                 setPlaylistModal(true);
               }}
@@ -66,7 +47,7 @@ export const HorizontalVideo = ({ video, item }) => {
               <>
                 <i
                   className='bi bi-clock-fill'
-                  onClick={() => removeFromWatchlater(video)}
+                  onClick={() => deleteWatchLater(video)}
                 ></i>
                 <span>Remove Watch later</span>
               </>
@@ -74,7 +55,7 @@ export const HorizontalVideo = ({ video, item }) => {
               <>
                 <i
                   className='bi bi-clock'
-                  onClick={() => addToWatchlater(video)}
+                  onClick={() => addWatchLater(video)}
                 ></i>
                 <span>Watch later</span>
               </>

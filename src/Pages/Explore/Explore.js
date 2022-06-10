@@ -51,7 +51,9 @@ export const Explore = () => {
         {sortedVideos.map((video) => (
           <div class='card' key={video._id}>
             <>
-              <img src={video.thumbnail} class='img-lg' />
+              <Link to='/login'>
+                <img src={video.thumbnail} class='img-lg' />
+              </Link>
               <div class='card-body'>
                 <div className='card-content'>
                   <span className='card-title'>{video.title}</span>

@@ -6,10 +6,7 @@ export const LoginInfo = ({ msg }) => {
   return (
     <div className='info-container'>
       <div className='bold-text'>Login to see {type} videos</div>
-      <button
-        className='btn btn-outline-primary'
-        onClick={() => navigate("/login")}
-      >
+      <button className='btn btn-primary' onClick={() => navigate("/login")}>
         Login
       </button>
     </div>
@@ -22,7 +19,7 @@ export const EmptyContainer = ({ msg }) => {
   return (
     <div className='info-container'>
       <div className='bold-text'>You haven't {message}</div>
-      <button className='btn ' onClick={() => navigate("/video")}>
+      <button className='button' onClick={() => navigate("/video")}>
         Start Adding Now
       </button>
     </div>
