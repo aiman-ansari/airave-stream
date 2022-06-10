@@ -3,7 +3,7 @@
 <h4>- by Aiman Ansari</h4>
 
 <b>Here's the demo link</b>
-<a>Airave Stream</a>
+<a href="https://airave-stream.netlify.app/">Airave Stream</a>
 
 <b>Features</b>
 
