@@ -28,7 +28,11 @@ export const History = () => {
             {history.map((video) => (
               <div className='horizonatl-card'>
                 <Link to={`/video/${video._id}`}>
-                  <img src={video.thumbnail} className='img-sm' />
+                  <img
+                    src={video.thumbnail}
+                    className='img-sm'
+                    alt={video.title}
+                  />
                 </Link>
                 <div className='card-body'>
                   <div className='card-title'>{video.title}</div>

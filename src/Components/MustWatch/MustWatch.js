@@ -1,5 +1,4 @@
-import { useParams, Link } from "react-router-dom";
-import { useIconContainer } from "../../Context/IconContainerContext";
+import { useParams } from "react-router-dom";
 import { useVideo } from "../../Context/VideoContext";
 import { VideoCard } from "../VideoCard/VideoCard";
 export const MustWatch = ({ getSingleVideo }) => {
@@ -14,7 +13,7 @@ export const MustWatch = ({ getSingleVideo }) => {
             (item) => item.categoryName === getSingleVideo[0].categoryName
           )
           .filter((item) => item._id !== _id)
-          .map((video) => <VideoCard video={video} />)}
+          .map((video) => <VideoCard video={video} key={video._id} />)}
     </>
   );
 };

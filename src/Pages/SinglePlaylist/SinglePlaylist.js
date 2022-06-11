@@ -2,11 +2,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { HorizontalVideo } from "../../Components/HorizontalVideo/HorizontalVideo";
 import { usePlaylist } from "../../Context/PlaylistContext";
 import "./SinglePlaylist.css";
-
 import { ToastContainer } from "react-toastify";
-import { useEffect } from "react";
-import { useState } from "react";
-import axios from "axios";
+
 export const SinglePlaylist = () => {
   const { _id } = useParams();
   const { playlist, deleteSinglePlaylist, setPlaylist } = usePlaylist();

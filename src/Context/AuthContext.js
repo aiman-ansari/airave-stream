@@ -18,7 +18,7 @@ const AuthProvider = ({ children }) => {
     const getValues = { firstName, lastName, email, password };
     try {
       const res = await axios.post("/api/auth/signup", getValues);
-      if (res.status == 200 || res.status == 201) {
+      if (res.status === 200 || res.status == 201) {
         localStorage.setItem("token", res.data.encodedToken);
         dispatch({
           type: "signup",
@@ -29,7 +29,7 @@ const AuthProvider = ({ children }) => {
         }, 3000);
       }
     } catch (error) {
-      if (error.response.status == 422) {
+      if (error.response.status === 422) {
         toast.error("Account already exist , please login", {
           theme: "colored",
           autoClose: 2000,
@@ -43,7 +43,7 @@ const AuthProvider = ({ children }) => {
 
     try {
       const res = await axios.post("/api/auth/login", getLoginValues);
-      if (res.status == 200 || res.status == 201) {
+      if (res.status === 200 || res.status === 201) {
         localStorage.setItem("token", res.data.encodedToken);
         localStorage.setItem(
           "user",
@@ -59,13 +59,13 @@ const AuthProvider = ({ children }) => {
         });
       }
     } catch (error) {
-      if (error.response.status == 404) {
+      if (error.response.status === 404) {
         toast.error("Email is not register", {
           theme: "colored",
           autoClose: 2000,
         });
       }
-      if (error.response.status == 401) {
+      if (error.response.status === 401) {
         toast.error("Password does not match", {
           theme: "colored",
           autoClose: 2000,

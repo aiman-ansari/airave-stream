@@ -10,6 +10,7 @@ export const Category = () => {
       {categories.map((item) => (
         <Link to='/video'>
           <div
+            key={item._id}
             className='category-item'
             onClick={() => {
               dispatch({
@@ -18,7 +19,7 @@ export const Category = () => {
               });
             }}
           >
-            <img src={item.image} />
+            <img src={item.image} alt={item.categoryName} />
             <div className='category-name'>{item.categoryName}</div>
           </div>
         </Link>

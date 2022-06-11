@@ -45,6 +45,7 @@ export const Header = () => {
               <img
                 className='avatar avatar-xsm'
                 src='https://avatarfiles.alphacoders.com/715/71560.jpg'
+                alt='profile pic'
               />
             )}
 
