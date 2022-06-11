@@ -10,10 +10,12 @@ import {
 } from "../../Components/LoginInfo/LoginInfo";
 export const WatchLater = () => {
   const { watchLater } = useWatchLater();
-  const { isLogin } = useAuth();
+  const {
+    state: { isAuthenticated },
+  } = useAuth();
   return (
     <div className='like-container'>
-      {isLogin ? (
+      {isAuthenticated ? (
         watchLater.length > 0 ? (
           <>
             <div className='bold-text flex-align-center'>

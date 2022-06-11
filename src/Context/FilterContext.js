@@ -10,6 +10,7 @@ const FilterProvider = ({ children }) => {
   const [state, dispatch] = useReducer(FilterHandler, {
     category: "",
     active: "all",
+    search: "",
   });
   return (
     <FilterContext.Provider value={{ state, dispatch, isActive, setIsActive }}>

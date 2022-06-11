@@ -25,24 +25,8 @@
   background-color: var(--primary-color);
 }
 
-.videos-container {
-  display: flex;
-  margin-top: 1rem;
-  gap: 2rem;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
 @media screen and (max-width: 500px) {
-  .video-container {
-    gap: 1rem;
-  }
   .category-container {
     margin-top: 4rem;
-  }
-  .videos-container {
-    gap: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
   }
 }

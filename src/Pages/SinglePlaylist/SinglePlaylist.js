@@ -4,11 +4,15 @@ import { usePlaylist } from "../../Context/PlaylistContext";
 import "./SinglePlaylist.css";
 
 import { ToastContainer } from "react-toastify";
+import { useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
 export const SinglePlaylist = () => {
   const { _id } = useParams();
   const { playlist, deleteSinglePlaylist, setPlaylist } = usePlaylist();
   const navigate = useNavigate();
   const getSingleVideo = playlist.filter((item) => item._id === _id);
+
   return (
     <div className='like-container'>
       {getSingleVideo.map((item) => item.videos.length > 1) && (

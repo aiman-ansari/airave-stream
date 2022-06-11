@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { useAuth } from "../../Context/AuthContext";
 import "react-toastify/dist/ReactToastify.css";
 import "./Auth.css";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -74,7 +74,6 @@ export const Login = () => {
         </div>
       </div>
       <ToastContainer />
-      <Outlet />
     </div>
   );
 };

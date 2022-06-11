@@ -8,14 +8,16 @@ import { PlaylistContainer } from "../Playlist/PlaylistContainer";
 export const IconContainer = ({ video }) => {
   const { watchLater, addWatchLater, deleteWatchLater } = useWatchLater();
   const { playlistModal, setPlaylistModal } = usePlaylist();
-  const { isLogin } = useAuth();
+  const {
+    state: { isAuthenticated },
+  } = useAuth();
   const navigate = useNavigate();
   return (
     <>
       <div className='icon-container'>
         <ul>
           <li>
-            {isLogin ? (
+            {isAuthenticated ? (
               <i
                 class='bi bi-list-ul'
                 onClick={() => setPlaylistModal(true)}
@@ -26,7 +28,7 @@ export const IconContainer = ({ video }) => {
             <span>Save</span>
             {playlistModal && <PlaylistContainer video={video} />}
           </li>
-          {isLogin ? (
+          {isAuthenticated ? (
             watchLater.length > 0 &&
             watchLater.some((item) => item._id === video._id) ? (
               <li onClick={() => deleteWatchLater(video)}>

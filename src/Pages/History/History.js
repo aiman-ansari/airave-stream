@@ -8,11 +8,13 @@ import { useHistory } from "../../Context/HistoryContext";
 import { LoginInfo } from "../../Components/LoginInfo/LoginInfo";
 import { EmptyContainer } from "../../Components/LoginInfo/LoginInfo";
 export const History = () => {
-  const { isLogin } = useAuth();
+  const {
+    state: { isAuthenticated },
+  } = useAuth();
   const { history, deleteHistory, deleteAllHistory } = useHistory();
   return (
     <div className='like-container'>
-      {isLogin ? (
+      {isAuthenticated ? (
         history.length > 0 ? (
           <>
             <div className='top-container'>

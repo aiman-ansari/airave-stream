@@ -18,9 +18,12 @@ export const Singlevideo = () => {
   const { addWatchLater, watchLater, deleteWatchLater } = useWatchLater();
   const { addHistory } = useHistory();
   const { playlistModal, setPlaylistModal } = usePlaylist();
-  const { isLogin } = useAuth();
+  const {
+    state: { isAuthenticated },
+  } = useAuth();
   const navigate = useNavigate();
   const getSingleVideo = videos.filter((item) => item._id === _id);
+
   return (
     <div className='video-container'>
       <div>
@@ -28,7 +31,7 @@ export const Singlevideo = () => {
           .filter((item) => item._id === _id)
           .map((item) => (
             <>
-              {isLogin ? (
+              {isAuthenticated ? (
                 <iframe
                   className='video'
                   src={item.src}
@@ -52,7 +55,7 @@ export const Singlevideo = () => {
                   <div className='conatiner-actions'>
                     <ul>
                       <li>
-                        {isLogin ? (
+                        {isAuthenticated ? (
                           likes.some((video) => item._id === video._id) ? (
                             <i
                               className='bi bi-hand-thumbs-up-fill'
@@ -73,7 +76,7 @@ export const Singlevideo = () => {
                         <span>Like</span>
                       </li>
                       <li>
-                        {isLogin ? (
+                        {isAuthenticated ? (
                           watchLater.some((video) => item._id === video._id) ? (
                             <>
                               <i

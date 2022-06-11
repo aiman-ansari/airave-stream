@@ -117,9 +117,6 @@ li:hover {
   visibility: visible;
 }
 @media screen and (max-width: 500px) {
-  :root {
-    font-size: 12px;
-  }
   .menu {
     display: block;
   }
@@ -155,5 +152,8 @@ li:hover {
   }
   .sidebar li span {
     display: none;
+  }
+  .profile-content {
+    margin-right: 18rem;
   }
 }
