@@ -47,7 +47,7 @@ export const Login = () => {
         <div className='input-with-icons '>
           <i className='bi bi-lock-fill input-icon'></i>
           <input
-            type='email'
+            type='password'
             placeholder='Enter your Password'
             className='icon-input'
             value={password}

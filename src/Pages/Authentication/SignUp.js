@@ -32,7 +32,7 @@ export const SignUp = () => {
         <div class='input-with-icons '>
           <i class='bi bi-person-fill input-icon'></i>
           <input
-            type='email'
+            type='text'
             placeholder='Enter your First Name'
             class='icon-input'
             value={firstName}
@@ -42,7 +42,7 @@ export const SignUp = () => {
         <div class='input-with-icons '>
           <i class='bi bi-person-fill input-icon'></i>
           <input
-            type='email'
+            type='text'
             placeholder='Enter your last Name'
             class='icon-input'
             value={lastName}
