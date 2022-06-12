@@ -30,13 +30,13 @@ export const Home = () => {
           <div className='videos-div'>
             {videos.map((video) => (
               <div className='card' key={video._id}>
-                <Link to={`/video/${video._id}`}>
-                  {video.isTrending && (
-                    <>
-                      <VideoCard video={video} />
-                    </>
-                  )}
-                </Link>
+                {/* <Link to={`/video/${video._id}`}> */}
+                {video.isTrending && (
+                  <>
+                    <VideoCard video={video} />
+                  </>
+                )}
+                {/* </Link> */}
               </div>
             ))}
           </div>
