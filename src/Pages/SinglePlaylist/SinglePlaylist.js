@@ -39,7 +39,11 @@ export const SinglePlaylist = () => {
                             }
                           ></i>
                         </div>
-                        <HorizontalVideo video={video} item={item} />
+                        <HorizontalVideo
+                          video={video}
+                          item={item}
+                          isLiked={true}
+                        />
                       </>
                     </div>
                   ))}

@@ -23,7 +23,7 @@ export const WatchLater = () => {
               <div className='bottom-border'></div>
             </div>
             {watchLater.map((video) => (
-              <HorizontalVideo video={video} key={video._id} />
+              <HorizontalVideo video={video} key={video._id} isLiked={true} />
             ))}
           </>
         ) : (

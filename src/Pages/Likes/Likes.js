@@ -21,7 +21,7 @@ export const Likes = () => {
               <div className='bottom-border'></div>
             </div>
             {likes.map((video) => (
-              <HorizontalVideo video={video} />
+              <HorizontalVideo video={video} isLiked={true} />
             ))}
           </>
         ) : (

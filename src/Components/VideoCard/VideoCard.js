@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
-import { useIconContainer } from "../../Context/IconContainerContext";
 import { IconContainer } from "../Icons/IconContainer";
+import "./VideoCard.css";
 export const VideoCard = ({ video }) => {
-  const { show, setShow, setIconContainer, iconContainer } = useIconContainer();
-
   return (
     <div className='card' key={video._id}>
       <Link to={`/video/${video._id}`}>
@@ -12,24 +10,13 @@ export const VideoCard = ({ video }) => {
       <div className='card-body'>
         <div className='card-content'>
           <span className='card-title'>{video.title}</span>
-          {show === true ? (
-            <i
-              className='bi bi-three-dots-vertical'
-              onClick={() => {
-                setIconContainer(null);
-                setShow(!show);
-              }}
-            ></i>
-          ) : (
-            <i
-              className='bi bi-three-dots-vertical'
-              onClick={(_id) => {
-                setIconContainer(video._id);
-                setShow(!show);
-              }}
-            ></i>
-          )}
-          {iconContainer === video._id && <IconContainer video={video} />}
+          <div className='card-actions'>
+            <i className='bi bi-three-dots-vertical'></i>
+
+            <div className='icons-container'>
+              <IconContainer video={video} />
+            </div>
+          </div>
         </div>
         <div className='card-description'>{video.creator}</div>
         <div className='card-bottom'>

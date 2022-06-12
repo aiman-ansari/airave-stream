@@ -4,10 +4,12 @@ import { useAuth } from "../../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { usePlaylist } from "../../Context/PlaylistContext";
 import { PlaylistContainer } from "../Playlist/PlaylistContainer";
+import { useLikes } from "../../Context/LikeContext";
 
-export const IconContainer = ({ video }) => {
+export const IconContainer = ({ video, isLiked }) => {
   const { watchLater, addWatchLater, deleteWatchLater } = useWatchLater();
   const { playlistModal, setPlaylistModal } = usePlaylist();
+  const { deleteLike, likes, addLike } = useLikes();
   const {
     state: { isAuthenticated },
   } = useAuth();
@@ -16,6 +18,31 @@ export const IconContainer = ({ video }) => {
     <>
       <div className='icon-container'>
         <ul>
+          <li>
+            {isLiked ? (
+              isAuthenticated ? (
+                likes.length > 0 &&
+                likes.some((item) => item._id === video._id) ? (
+                  <li onClick={() => deleteLike(video)}>
+                    <i className='bi bi-heart-fill'></i>
+                    <span>Remove liked video</span>
+                  </li>
+                ) : (
+                  <li onClick={() => addLike(video)}>
+                    <i className='bi bi-heart'></i>
+                    <span>Like</span>
+                  </li>
+                )
+              ) : (
+                <li onClick={() => navigate("/login")}>
+                  <i className='bi bi-heart'></i>
+                  <span>Like</span>
+                </li>
+              )
+            ) : (
+              <></>
+            )}
+          </li>
           <li>
             {isAuthenticated ? (
               <i

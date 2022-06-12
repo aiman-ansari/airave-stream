@@ -1,0 +1,6 @@
+.icons-container {
+  visibility: hidden;
+}
+.bi-three-dots-vertical:hover .icons-container {
+  visibility: visible;
+}
