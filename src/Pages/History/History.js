@@ -1,12 +1,11 @@
+import { ToastContainer } from "react-toastify";
+import { Link } from "react-router-dom";
+import { useAuth, useHistory } from "../../Context";
+import { LoginInfo, EmptyContainer } from "../../Components";
 import "../../Pages/Likes/Likes.css";
 import "./History.css";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Link } from "react-router-dom";
-import { useAuth } from "../../Context/AuthContext";
-import { useHistory } from "../../Context/HistoryContext";
-import { LoginInfo } from "../../Components/LoginInfo/LoginInfo";
-import { EmptyContainer } from "../../Components/LoginInfo/LoginInfo";
+
 export const History = () => {
   const {
     state: { isAuthenticated },

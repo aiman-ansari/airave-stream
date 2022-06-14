@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-import { useAuth } from "../../Context/AuthContext";
+import { useAuth, useFilter } from "../../Context";
 import { Profile } from "../Profile/Profile";
 import "./Header.css";
-import { useFilter } from "../../Context/FilterContext";
 
 export const Header = () => {
   const {

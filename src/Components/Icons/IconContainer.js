@@ -1,10 +1,7 @@
 import "./IconContainer.css";
-import { useWatchLater } from "../../Context/WatchLaterContext";
-import { useAuth } from "../../Context/AuthContext";
+import { useWatchLater, useAuth, usePlaylist, useLikes } from "../../Context";
 import { useNavigate } from "react-router-dom";
-import { usePlaylist } from "../../Context/PlaylistContext";
 import { PlaylistContainer } from "../Playlist/PlaylistContainer";
-import { useLikes } from "../../Context/LikeContext";
 
 export const IconContainer = ({ video, isLiked }) => {
   const { watchLater, addWatchLater, deleteWatchLater } = useWatchLater();

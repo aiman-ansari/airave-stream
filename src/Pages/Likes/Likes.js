@@ -1,11 +1,9 @@
-import "./Likes.css";
 import { ToastContainer } from "react-toastify";
+import { HorizontalVideo, LoginInfo, EmptyContainer } from "../../Components";
+import { useAuth, useLikes } from "../../Context";
 import "react-toastify/dist/ReactToastify.css";
-import { useLikes } from "../../Context/LikeContext";
-import { HorizontalVideo } from "../../Components/HorizontalVideo/HorizontalVideo";
-import { useAuth } from "../../Context/AuthContext";
-import { LoginInfo } from "../../Components/LoginInfo/LoginInfo";
-import { EmptyContainer } from "../../Components/LoginInfo/LoginInfo";
+import "./Likes.css";
+
 export const Likes = () => {
   const {
     state: { isAuthenticated },

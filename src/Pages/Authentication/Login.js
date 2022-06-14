@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { useAuth } from "../../Context/AuthContext";
+import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import "./Auth.css";
-import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const navigate = useNavigate();

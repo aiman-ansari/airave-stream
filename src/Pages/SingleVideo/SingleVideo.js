@@ -1,15 +1,16 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useVideo } from "../../Context/VideoContext";
+import {
+  useVideo,
+  useAuth,
+  useLikes,
+  useWatchLater,
+  useHistory,
+  usePlaylist,
+} from "../../Context";
 import "./SingleVideo.css";
-import { MustWatch } from "../../Components/MustWatch/MustWatch";
-import { useAuth } from "../../Context/AuthContext";
-import { useLikes } from "../../Context/LikeContext";
+import { MustWatch, PlaylistContainer } from "../../Components";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useWatchLater } from "../../Context/WatchLaterContext";
-import { useHistory } from "../../Context/HistoryContext";
-import { PlaylistContainer } from "../../Components/Playlist/PlaylistContainer";
-import { usePlaylist } from "../../Context/PlaylistContext";
 
 export const Singlevideo = () => {
   const { videos } = useVideo();

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { useCategory } from "../../Context/CategoryContext";
-import { useFilter } from "../../Context/FilterContext";
+import { useCategory, useFilter } from "../../Context";
 import "./Category.css";
 export const Category = () => {
   const { categories } = useCategory();

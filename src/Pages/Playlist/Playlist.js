@@ -1,10 +1,7 @@
-import { usePlaylist } from "../../Context/PlaylistContext";
+import { usePlaylist, useAuth } from "../../Context";
 import "./Playlist.css";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../Context/AuthContext";
-import { LoginInfo } from "../../Components/LoginInfo/LoginInfo";
-import { EmptyContainer } from "../../Components/LoginInfo/LoginInfo";
-import { CreatePlaylist } from "../../Components/CreatePlaylist/CreatePlaylist";
+import { LoginInfo, EmptyContainer, CreatePlaylist } from "../../Components";
 export const Playlist = () => {
   const {
     state: { isAuthenticated },

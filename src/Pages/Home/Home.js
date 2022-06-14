@@ -1,8 +1,6 @@
-import { Category } from "../../Components/Category/Category";
+import { Category, VideoCard } from "../../Components";
 import { useVideo } from "../../Context/VideoContext";
-import { Link } from "react-router-dom";
 import "./Home.css";
-import { VideoCard } from "../../Components/VideoCard/VideoCard";
 export const Home = () => {
   const { videos } = useVideo();
   return (
@@ -30,13 +28,11 @@ export const Home = () => {
           <div className='videos-div'>
             {videos.map((video) => (
               <div className='card' key={video._id}>
-                {/* <Link to={`/video/${video._id}`}> */}
                 {video.isTrending && (
                   <>
                     <VideoCard video={video} />
                   </>
                 )}
-                {/* </Link> */}
               </div>
             ))}
           </div>

@@ -1,10 +1,8 @@
-import { useCategory } from "../../Context/CategoryContext";
-import { useFilter } from "../../Context/FilterContext";
-import { useVideo } from "../../Context/VideoContext";
 import { Filter } from "../../Reducer/Filter";
-import "./Explore.css";
+import { useCategory, useFilter, useVideo } from "../../Context/index";
 import { ToastContainer } from "react-toastify";
 import { VideoCard } from "../../Components/VideoCard/VideoCard";
+import "./Explore.css";
 
 export const Explore = () => {
   const { categories } = useCategory();
