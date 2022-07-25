@@ -36,17 +36,17 @@ export const Header = () => {
 
         <div>
           <div className='profile'>
-            {isAuthenticated ? (
+            {/* {isAuthenticated ? (
               <div className='avatar avatar-xsm avatar-green flex-align-center'>
                 {user.split(" ").map((item) => item.charAt(0))}
               </div>
-            ) : (
-              <img
-                className='avatar avatar-xsm'
-                src='https://avatarfiles.alphacoders.com/715/71560.jpg'
-                alt='profile pic'
-              />
-            )}
+            ) : ( */}
+            <img
+              className='avatar avatar-xsm'
+              src='https://avatarfiles.alphacoders.com/715/71560.jpg'
+              alt='profile pic'
+            />
+            {/* )} */}
 
             <div className='profile-content'>
               <Profile />

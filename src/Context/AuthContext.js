@@ -57,15 +57,16 @@ const AuthProvider = ({ children }) => {
           theme: "colored",
           autoClose: 2000,
         });
+        navigate(-1);
       }
     } catch (error) {
-      if (error.response.status === 404) {
+      if ((error.response.status = 404)) {
         toast.error("Email is not register", {
           theme: "colored",
           autoClose: 2000,
         });
       }
-      if (error.response.status === 401) {
+      if ((error.response.status = 401)) {
         toast.error("Password does not match", {
           theme: "colored",
           autoClose: 2000,

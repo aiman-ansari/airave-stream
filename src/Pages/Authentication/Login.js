@@ -20,7 +20,7 @@ export const Login = () => {
     if (email && password) {
       setError(false);
       handleLoginData(email, password);
-      navigate(-1);
+      // navigate(-1);
     } else {
       setError(true);
       setMessage("Please fill all the fields");
