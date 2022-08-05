@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
-import { useAuth } from "../../Context/AuthContext";
+import { useAuth, useFilter } from "../../Context";
 import { Profile } from "../Profile/Profile";
 import "./Header.css";
 
 export const Header = () => {
-  const { isLogin, user } = useAuth();
+  const {
+    state: { isAuthenticated, user },
+  } = useAuth();
+  const { state, dispatch } = useFilter();
+
   return (
     <>
       <nav>
@@ -14,19 +18,36 @@ export const Header = () => {
           </Link>
         </ul>
         <div>
-          <input
-            type='text'
-            placeholder='Search here '
-            className='search-input'
-          />
+          <Link to='/video'>
+            <input
+              type='text'
+              placeholder='Search here'
+              className='search-input'
+              value={state.search}
+              onChange={(e) => {
+                dispatch({
+                  type: "SEARCH",
+                  payload: e.target.value,
+                });
+              }}
+            />
+          </Link>
         </div>
 
         <div>
           <div className='profile'>
+            {/* {isAuthenticated ? (
+              <div className='avatar avatar-xsm avatar-green flex-align-center'>
+                {user.split(" ").map((item) => item.charAt(0))}
+              </div>
+            ) : ( */}
             <img
               className='avatar avatar-xsm'
               src='https://avatarfiles.alphacoders.com/715/71560.jpg'
+              alt='profile pic'
             />
+            {/* )} */}
+
             <div className='profile-content'>
               <Profile />
             </div>

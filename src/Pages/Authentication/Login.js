@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { useAuth } from "../../Context/AuthContext";
+import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import "./Auth.css";
-import { Outlet, useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -20,15 +20,14 @@ export const Login = () => {
     if (email && password) {
       setError(false);
       handleLoginData(email, password);
-      navigate(-1);
+      // navigate(-1);
     } else {
       setError(true);
       setMessage("Please fill all the fields");
     }
   };
   const handleTest = () => {
-    setEmail(test.email);
-    setPassword(test.password);
+    handleLoginData(test.email, test.password);
   };
   return (
     <div className='auth-container'>
@@ -47,7 +46,7 @@ export const Login = () => {
         <div className='input-with-icons '>
           <i className='bi bi-lock-fill input-icon'></i>
           <input
-            type='email'
+            type='password'
             placeholder='Enter your Password'
             className='icon-input'
             value={password}
@@ -63,7 +62,7 @@ export const Login = () => {
             Login
           </button>
           <button
-            className='btn btn-outline-primary'
+            className='btn btn-outline-primary width-100'
             onClick={() => handleTest()}
           >
             Test Login
@@ -74,7 +73,6 @@ export const Login = () => {
         </div>
       </div>
       <ToastContainer />
-      <Outlet />
     </div>
   );
 };

@@ -22,7 +22,7 @@
 }
 .playlist-top .btn {
   position: absolute;
-  right: 1%;
+  right: 2%;
 }
 .playlist-overlay {
   position: absolute;
@@ -66,5 +66,14 @@
     margin-top: 1rem;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 80vw;
+  }
+  .playlist-top .btn {
+    right: 10%;
+  }
+  .playlist-container {
+    width: 80vw;
   }
 }

@@ -36,7 +36,7 @@ export const videos = [
     views: "3.2M",
     date: "Apr 2021",
     creator: "8k world",
-    src: "https://www.youtube.com/embed/G5RpJwCJDqc",
+    src: "https://www.youtube.com/embed/G5RpJwCJDqc?autopplay=1",
     isTrending: true,
   },
   {
@@ -48,7 +48,7 @@ export const videos = [
     date: "Oct 2016",
     creator: "Amazing Places on Our Planet",
     isTrending: true,
-    src: "https://www.youtube.com/embed/t4nM1FoUqYs",
+    src: "https://www.youtube.com/embed/t4nM1FoUqYs?autopplay=1",
   },
   {
     _id: uuid(),
@@ -58,7 +58,7 @@ export const videos = [
     views: "176k",
     date: "Feb 2022",
     creator: "Wonders Of Planet Earth 4K | 8K",
-    src: "https://www.youtube.com/embed/hCQvPX0DLFM",
+    src: "https://www.youtube.com/embed/hCQvPX0DLFM?autopplay=1",
   },
 
   {
@@ -69,7 +69,7 @@ export const videos = [
     views: "20M",
     date: "Nov 2020",
     creator: "8k world",
-    src: "https://www.youtube.com/embed/linlz7-Pnvw",
+    src: "https://www.youtube.com/embed/linlz7-Pnvw?autopplay=1",
   },
   {
     _id: uuid(),
@@ -79,7 +79,7 @@ export const videos = [
     views: "10M",
     date: "Apr 2017",
     creator: "AirPano VR",
-    src: "https://www.youtube.com/embed/L_tqK4eqelA",
+    src: "https://www.youtube.com/embed/L_tqK4eqelA?autopplay=1",
   },
   {
     _id: uuid(),
@@ -90,7 +90,7 @@ export const videos = [
     views: "1K",
     date: "Jan 2021",
     creator: "4K Video World",
-    src: "https://www.youtube.com/embed/aH9gQ86XNK0",
+    src: "https://www.youtube.com/embed/aH9gQ86XNK0?autopplay=1",
   },
   {
     _id: uuid(),
@@ -100,7 +100,7 @@ export const videos = [
     views: "58k",
     date: "Jun 2019",
     creator: "Sailing Whitsundays",
-    src: "https://www.youtube.com/embed/YqFTAXm7_Qc",
+    src: "https://www.youtube.com/embed/YqFTAXm7_Qc?autopplay=1",
   },
   {
     _id: uuid(),
@@ -111,7 +111,7 @@ export const videos = [
     views: "20k",
     date: "Feb 2022",
     creator: "Tripoto",
-    src: "https://www.youtube.com/embed/6oxYvj8s2Tg",
+    src: "https://www.youtube.com/embed/6oxYvj8s2Tg?autopplay=1",
   },
   {
     _id: uuid(),
@@ -121,7 +121,7 @@ export const videos = [
     views: "1M",
     date: "Jul 2018",
     creator: "touropia",
-    src: "https://www.youtube.com/embed/KwmjJvM_rLs",
+    src: "https://www.youtube.com/embed/KwmjJvM_rLs?autopplay=1",
   },
   {
     _id: uuid(),
@@ -131,7 +131,7 @@ export const videos = [
     views: "1M",
     date: "Jan 2021",
     creator: "4K World",
-    src: "https://www.youtube.com/embed/_KEb4P3t9Ec",
+    src: "https://www.youtube.com/embed/_KEb4P3t9Ec?autopplay=1",
   },
   {
     _id: uuid(),
@@ -141,7 +141,7 @@ export const videos = [
     views: "252K",
     date: "Nov 2017",
     creator: "touropia",
-    src: "https://www.youtube.com/embed/t5j2zIlbzUE",
+    src: "https://www.youtube.com/embed/t5j2zIlbzUE?autopplay=1",
   },
   {
     _id: uuid(),
@@ -151,7 +151,7 @@ export const videos = [
     views: "1M",
     date: "Mar 2018",
     creator: "BBC",
-    src: "https://www.youtube.com/embed/SZ5JjLdzQ1o",
+    src: "https://www.youtube.com/embed/SZ5JjLdzQ1o?autopplay=1",
   },
   {
     _id: uuid(),
@@ -161,7 +161,7 @@ export const videos = [
     views: "4.6M",
     date: "Mar 2015",
     creator: "Teton Gravity Research",
-    src: "https://www.youtube.com/embed/-hTVNidxg2s",
+    src: "https://www.youtube.com/embed/-hTVNidxg2s?autopplay=1",
   },
   {
     _id: uuid(),
@@ -172,7 +172,7 @@ export const videos = [
     views: "2M",
     date: "Feb 2021",
     creator: "Teton Gravity Research",
-    src: "https://www.youtube.com/embed/eRUQPfVACs0",
+    src: "https://www.youtube.com/embed/eRUQPfVACs0?autopplay=1",
   },
   {
     _id: uuid(),
@@ -182,6 +182,6 @@ export const videos = [
     views: "1M",
     date: "Mar 2019",
     creator: "roaming plus",
-    src: "https://www.youtube.com/embed/nkwLjnragtw",
+    src: "https://www.youtube.com/embed/nkwLjnragtw?autopplay=1",
   },
 ];

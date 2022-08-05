@@ -1,15 +1,16 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useVideo } from "../../Context/VideoContext";
+import {
+  useVideo,
+  useAuth,
+  useLikes,
+  useWatchLater,
+  useHistory,
+  usePlaylist,
+} from "../../Context";
 import "./SingleVideo.css";
-import { MustWatch } from "../../Components/MustWatch/MustWatch";
-import { useAuth } from "../../Context/AuthContext";
-import { useLikes } from "../../Context/LikeContext";
+import { MustWatch, PlaylistContainer } from "../../Components";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useWatchLater } from "../../Context/WatchLaterContext";
-import { useHistory } from "../../Context/HistoryContext";
-import { PlaylistContainer } from "../../Components/Playlist/PlaylistContainer";
-import { usePlaylist } from "../../Context/PlaylistContext";
 
 export const Singlevideo = () => {
   const { videos } = useVideo();
@@ -18,9 +19,12 @@ export const Singlevideo = () => {
   const { addWatchLater, watchLater, deleteWatchLater } = useWatchLater();
   const { addHistory } = useHistory();
   const { playlistModal, setPlaylistModal } = usePlaylist();
-  const { isLogin } = useAuth();
+  const {
+    state: { isAuthenticated },
+  } = useAuth();
   const navigate = useNavigate();
   const getSingleVideo = videos.filter((item) => item._id === _id);
+
   return (
     <div className='video-container'>
       <div>
@@ -28,7 +32,7 @@ export const Singlevideo = () => {
           .filter((item) => item._id === _id)
           .map((item) => (
             <>
-              {isLogin ? (
+              {isAuthenticated ? (
                 <iframe
                   className='video'
                   src={item.src}
@@ -51,66 +55,54 @@ export const Singlevideo = () => {
                   <div className='video-title'>{item.title}</div>
                   <div className='conatiner-actions'>
                     <ul>
-                      <li>
-                        {isLogin ? (
-                          likes.some((video) => item._id === video._id) ? (
-                            <i
-                              className='bi bi-hand-thumbs-up-fill'
-                              onClick={() => deleteLike(item)}
-                            ></i>
-                          ) : (
-                            <i
-                              className='bi bi-hand-thumbs-up'
-                              onClick={() => addLike(item)}
-                            ></i>
-                          )
+                      {isAuthenticated ? (
+                        likes.some((video) => item._id === video._id) ? (
+                          <li onClick={() => deleteLike(item)}>
+                            <i className='bi bi-hand-thumbs-up-fill'></i>
+                            <span>Like</span>
+                          </li>
                         ) : (
-                          <i
-                            className='bi bi-hand-thumbs-up'
-                            onClick={() => navigate("/login")}
-                          ></i>
-                        )}
-                        <span>Like</span>
-                      </li>
-                      <li>
-                        {isLogin ? (
-                          watchLater.some((video) => item._id === video._id) ? (
-                            <>
-                              <i
-                                className='bi bi-clock-fill'
-                                onClick={() => deleteWatchLater(item)}
-                              ></i>
-                              <span>Remove Watch later</span>
-                            </>
-                          ) : (
-                            <>
-                              <i
-                                className='bi bi-clock'
-                                onClick={() => addWatchLater(item)}
-                              ></i>
-                              <span>Watch later</span>
-                            </>
-                          )
+                          <li onClick={() => addLike(item)}>
+                            <i className='bi bi-hand-thumbs-up'></i>
+                            <span>Like</span>
+                          </li>
+                        )
+                      ) : (
+                        <li onClick={() => navigate("/login")}>
+                          <i className='bi bi-hand-thumbs-up'></i>
+                          <span>Like</span>
+                        </li>
+                      )}
+                      {isAuthenticated ? (
+                        watchLater.some((video) => item._id === video._id) ? (
+                          <li onClick={() => deleteWatchLater(item)}>
+                            <i className='bi bi-clock-fill'></i>
+                            <span>Remove Watch later</span>
+                          </li>
                         ) : (
-                          <>
-                            <i
-                              className='bi bi-clock'
-                              onClick={() => navigate("/login")}
-                            ></i>
+                          <li onClick={() => addWatchLater(item)}>
+                            <i className='bi bi-clock'></i>
                             <span>Watch later</span>
-                          </>
-                        )}
-                      </li>
-                      <li>
-                        <i
-                          className='bi bi-list-ul'
-                          onClick={() => {
-                            setPlaylistModal(true);
-                          }}
-                        ></i>
-                        <span>Save</span>
-                        {playlistModal && <PlaylistContainer video={item} />}
-                      </li>
+                          </li>
+                        )
+                      ) : (
+                        <li onClick={() => navigate("/login")}>
+                          <i className='bi bi-clock'></i>
+                          <span>Watch later</span>
+                        </li>
+                      )}
+                      {isAuthenticated ? (
+                        <li onClick={() => setPlaylistModal(true)}>
+                          <i class='bi bi-list-ul'></i>
+                          <span>Save</span>
+                        </li>
+                      ) : (
+                        <li onClick={() => navigate("/login")}>
+                          <i class='bi bi-list-ul'></i>
+                          <span>Save</span>
+                        </li>
+                      )}
+                      {playlistModal && <PlaylistContainer video={item} />}
                     </ul>
                   </div>
                 </div>

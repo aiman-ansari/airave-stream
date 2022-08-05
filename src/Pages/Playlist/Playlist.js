@@ -1,18 +1,16 @@
-import { usePlaylist } from "../../Context/PlaylistContext";
+import { usePlaylist, useAuth } from "../../Context";
 import "./Playlist.css";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../Context/AuthContext";
-import { LoginInfo } from "../../Components/LoginInfo/LoginInfo";
-import { EmptyContainer } from "../../Components/LoginInfo/LoginInfo";
-import { CreatePlaylist } from "../../Components/CreatePlaylist/CreatePlaylist";
+import { LoginInfo, EmptyContainer, CreatePlaylist } from "../../Components";
 export const Playlist = () => {
-  const { isLogin } = useAuth();
+  const {
+    state: { isAuthenticated },
+  } = useAuth();
   const { playlist, deletePlaylist, createPlaylist, setShowPlaylist } =
     usePlaylist();
-
   return (
     <div className='mt-2'>
-      {isLogin ? (
+      {isAuthenticated ? (
         playlist.length > 0 ? (
           <>
             <div className='playlist-top'>
@@ -34,7 +32,7 @@ export const Playlist = () => {
                   <Link to={`/playlist/${item._id}`}>
                     {item.videos.length > 0 ? (
                       <img
-                        src={item.videos.map((video) => video.thumbnail)}
+                        src={item.videos[0].thumbnail}
                         className='playlist-image'
                       />
                     ) : (

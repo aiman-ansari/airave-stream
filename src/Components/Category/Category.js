@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { useCategory } from "../../Context/CategoryContext";
-import { useFilter } from "../../Context/FilterContext";
+import { useCategory, useFilter } from "../../Context";
 import "./Category.css";
 export const Category = () => {
   const { categories } = useCategory();
@@ -10,6 +9,7 @@ export const Category = () => {
       {categories.map((item) => (
         <Link to='/video'>
           <div
+            key={item._id}
             className='category-item'
             onClick={() => {
               dispatch({
@@ -18,7 +18,7 @@ export const Category = () => {
               });
             }}
           >
-            <img src={item.image} />
+            <img src={item.image} alt={item.categoryName} />
             <div className='category-name'>{item.categoryName}</div>
           </div>
         </Link>

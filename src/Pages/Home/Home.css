@@ -4,6 +4,14 @@
   --text-gray: rgb(174, 174, 174);
   --text-gray-light: rgb(201, 201, 201);
 }
+
+.container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
 .image {
   height: 60vh;
   width: 96%;
@@ -16,14 +24,6 @@
 .img {
   height: 100%;
   width: 100%;
-}
-
-.container {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  flex-wrap: wrap;
-  padding: 1rem;
 }
 .container .bold-text {
   display: flex;
@@ -40,7 +40,7 @@
 }
 .videos-div {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
   width: 100%;
@@ -102,11 +102,15 @@
     padding: 0;
     margin: 0;
   }
-  .image {
+  .container .image {
     margin-top: 4rem;
     height: 60vh;
     width: 100%;
+    padding-left: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
+
   .videos-div {
     gap: 1rem;
     width: 100vw;

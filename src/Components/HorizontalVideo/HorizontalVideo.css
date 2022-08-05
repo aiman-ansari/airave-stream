@@ -20,27 +20,17 @@
 
 .horizonatl-card .card-body {
   display: flex;
+  position: relative;
   width: 30rem;
   height: 6rem;
   padding-left: 1rem;
   color: var(--text-white);
 }
-.icon-div {
-  color: var(--text-gray);
+
+.horizonatl-card .card-content {
   display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
 }
 
-.icon-div > div:hover {
-  color: var(--primary-color);
-}
-.icon-div i:hover {
-  color: var(--text-white);
-}
-.icon-div span {
-  padding: 10px;
-}
 .bold-text {
   display: flex;
   justify-content: flex-start;
@@ -48,17 +38,16 @@
   color: var(--text-white);
   margin: 1rem;
 }
+
+.icons-container {
+  visibility: hidden;
+}
+.card-actions:hover .icons-container {
+  visibility: visible;
+}
+
 @media screen and (max-width: 500px) {
   .horizonatl-card {
     width: 30rem;
-  }
-  .icon-div {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    font-size: 10px;
-  }
-  .icon-div span {
-    padding: 5px;
   }
 }

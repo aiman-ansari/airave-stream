@@ -46,11 +46,15 @@ ul li {
   font-size: 0.8rem;
 }
 .search-input {
-  width: 20rem;
+  width: 30rem;
   padding: 0.3rem 1rem;
-  border: 1px solid var(--text-gray-dark);
+  background-color: var(--bg-sidebar-hover);
+  padding: 10px;
   border-radius: 10px;
   color: var(--text-white);
+}
+input::placeholder {
+  color: var(--text-gray);
 }
 .bold-text {
   font-size: 1.1rem;
@@ -117,9 +121,6 @@ li:hover {
   visibility: visible;
 }
 @media screen and (max-width: 500px) {
-  :root {
-    font-size: 12px;
-  }
   .menu {
     display: block;
   }
@@ -155,5 +156,11 @@ li:hover {
   }
   .sidebar li span {
     display: none;
+  }
+  .profile-content {
+    margin-right: 18rem;
+  }
+  .search-input {
+    width: 15rem;
   }
 }

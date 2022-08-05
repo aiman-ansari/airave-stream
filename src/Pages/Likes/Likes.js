@@ -1,25 +1,25 @@
-import "./Likes.css";
 import { ToastContainer } from "react-toastify";
+import { HorizontalVideo, LoginInfo, EmptyContainer } from "../../Components";
+import { useAuth, useLikes } from "../../Context";
 import "react-toastify/dist/ReactToastify.css";
-import { useLikes } from "../../Context/LikeContext";
-import { HorizontalVideo } from "../../Components/HorizontalVideo/HorizontalVideo";
-import { useAuth } from "../../Context/AuthContext";
-import { LoginInfo } from "../../Components/LoginInfo/LoginInfo";
-import { EmptyContainer } from "../../Components/LoginInfo/LoginInfo";
+import "./Likes.css";
+
 export const Likes = () => {
-  const { isLogin } = useAuth();
+  const {
+    state: { isAuthenticated },
+  } = useAuth();
   const { likes } = useLikes();
   return (
     <div className='like-container'>
-      {isLogin ? (
+      {isAuthenticated ? (
         likes.length > 0 ? (
           <>
             <div className='bold-text flex-align-center'>
-              <h4>Liked Vedios</h4>
+              <h4>Liked Videos</h4>
               <div className='bottom-border'></div>
             </div>
             {likes.map((video) => (
-              <HorizontalVideo video={video} />
+              <HorizontalVideo video={video} isLiked={true} />
             ))}
           </>
         ) : (

@@ -21,6 +21,9 @@
   color: var(--text-gray);
   padding: 0.5rem;
 }
+.conatiner-actions li .bi {
+  font-size: 1.2rem;
+}
 .conatiner-actions ul li span {
   padding: 0.3rem;
 }
@@ -39,13 +42,14 @@
 }
 @media screen and (max-width: 500px) {
   .video-container {
-    padding: 2rem;
     margin-top: 1rem;
     display: flex;
     justify-content: center;
   }
   .video {
-    width: 95vw;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
   .container-bottom {
     padding: 1rem;
@@ -55,5 +59,11 @@
 
   .views {
     padding: 0 1rem;
+  }
+  .conatiner-actions li .bi {
+    font-size: 1.2rem;
+  }
+  .conatiner-actions li span {
+    font-size: 1.2rem;
   }
 }

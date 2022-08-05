@@ -1,9 +1,9 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { HorizontalVideo } from "../../Components/HorizontalVideo/HorizontalVideo";
 import { usePlaylist } from "../../Context/PlaylistContext";
+import { ToastContainer } from "react-toastify";
 import "./SinglePlaylist.css";
 
-import { ToastContainer } from "react-toastify";
 export const SinglePlaylist = () => {
   const { _id } = useParams();
   const { playlist, deleteSinglePlaylist, setPlaylist } = usePlaylist();
@@ -26,19 +26,23 @@ export const SinglePlaylist = () => {
                   {item.videos.map((video) => (
                     <div className='new' key={video._id}>
                       <>
+                        <HorizontalVideo
+                          video={video}
+                          item={item}
+                          isLiked={true}
+                        />
                         <div className='hovering'>
                           <i
                             className='bi bi-trash'
-                            onClick={() =>
+                            onClick={() => {
                               deleteSinglePlaylist(
                                 item._id,
                                 video._id,
                                 setPlaylist
-                              )
-                            }
+                              );
+                            }}
                           ></i>
                         </div>
-                        <HorizontalVideo video={video} item={item} />
                       </>
                     </div>
                   ))}

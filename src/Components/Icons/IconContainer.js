@@ -1,32 +1,58 @@
 import "./IconContainer.css";
-import { useWatchLater } from "../../Context/WatchLaterContext";
-import { useAuth } from "../../Context/AuthContext";
+import { useWatchLater, useAuth, usePlaylist, useLikes } from "../../Context";
 import { useNavigate } from "react-router-dom";
-import { usePlaylist } from "../../Context/PlaylistContext";
 import { PlaylistContainer } from "../Playlist/PlaylistContainer";
 
-export const IconContainer = ({ video }) => {
+export const IconContainer = ({ video, isLiked }) => {
   const { watchLater, addWatchLater, deleteWatchLater } = useWatchLater();
   const { playlistModal, setPlaylistModal } = usePlaylist();
-  const { isLogin } = useAuth();
+  const { deleteLike, likes, addLike } = useLikes();
+  const {
+    state: { isAuthenticated },
+  } = useAuth();
   const navigate = useNavigate();
   return (
     <>
       <div className='icon-container'>
         <ul>
           <li>
-            {isLogin ? (
-              <i
-                class='bi bi-list-ul'
-                onClick={() => setPlaylistModal(true)}
-              ></i>
+            {isLiked ? (
+              isAuthenticated ? (
+                likes.length > 0 &&
+                likes.some((item) => item._id === video._id) ? (
+                  <li onClick={() => deleteLike(video)}>
+                    <i className='bi bi-heart-fill'></i>
+                    <span>Remove liked video</span>
+                  </li>
+                ) : (
+                  <li onClick={() => addLike(video)}>
+                    <i className='bi bi-heart'></i>
+                    <span>Like</span>
+                  </li>
+                )
+              ) : (
+                <li onClick={() => navigate("/login")}>
+                  <i className='bi bi-heart'></i>
+                  <span>Like</span>
+                </li>
+              )
             ) : (
-              <i class='bi bi-list-ul' onClick={() => navigate("/login")}></i>
+              <></>
             )}
-            <span>Save</span>
-            {playlistModal && <PlaylistContainer video={video} />}
           </li>
-          {isLogin ? (
+          {isAuthenticated ? (
+            <li onClick={() => setPlaylistModal(true)}>
+              <i class='bi bi-list-ul'></i>
+              <span>Save</span>
+            </li>
+          ) : (
+            <li onClick={() => navigate("/login")}>
+              <i class='bi bi-list-ul'></i>
+              <span>Save</span>
+            </li>
+          )}
+          {playlistModal && <PlaylistContainer video={video} />}
+          {isAuthenticated ? (
             watchLater.length > 0 &&
             watchLater.some((item) => item._id === video._id) ? (
               <li onClick={() => deleteWatchLater(video)}>

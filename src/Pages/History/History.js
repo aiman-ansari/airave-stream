@@ -1,32 +1,38 @@
+import { ToastContainer } from "react-toastify";
+import { Link } from "react-router-dom";
+import { useAuth, useHistory } from "../../Context";
+import { LoginInfo, EmptyContainer } from "../../Components";
 import "../../Pages/Likes/Likes.css";
 import "./History.css";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Link } from "react-router-dom";
-import { useAuth } from "../../Context/AuthContext";
-import { useHistory } from "../../Context/HistoryContext";
-import { LoginInfo } from "../../Components/LoginInfo/LoginInfo";
-import { EmptyContainer } from "../../Components/LoginInfo/LoginInfo";
+
 export const History = () => {
-  const { isLogin } = useAuth();
+  const {
+    state: { isAuthenticated },
+  } = useAuth();
   const { history, deleteHistory, deleteAllHistory } = useHistory();
+  const getHistory = [...history].reverse();
   return (
     <div className='like-container'>
-      {isLogin ? (
+      {isAuthenticated ? (
         history.length > 0 ? (
           <>
             <div className='top-container'>
               <div className='bold-text'>
-                <h4>History Vedios</h4>
+                <h4>History Videos</h4>
                 <div className='bottom-border'></div>
               </div>
               <span onClick={() => deleteAllHistory()}>Clear all</span>
             </div>
 
-            {history.map((video) => (
+            {getHistory.map((video) => (
               <div className='horizonatl-card'>
                 <Link to={`/video/${video._id}`}>
-                  <img src={video.thumbnail} className='img-sm' />
+                  <img
+                    src={video.thumbnail}
+                    className='img-sm'
+                    alt={video.title}
+                  />
                 </Link>
                 <div className='card-body'>
                   <div className='card-title'>{video.title}</div>

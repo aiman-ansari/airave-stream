@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { usePlaylist } from "../../Context/PlaylistContext";
-// import "./PlaylistContainer.css";
 export const CreatePlaylist = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const { addPlaylist, setShowPlaylist, playlistModal } = usePlaylist();
+  const { addPlaylist, setShowPlaylist } = usePlaylist();
   const [error, setError] = useState("");
   const addToPlaylist = () => {
     if (title === "") {

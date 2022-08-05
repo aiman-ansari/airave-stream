@@ -17,3 +17,8 @@
   background-color: transparent;
   border: 2px solid var(--text-accent-color);
 }
+@media screen and (max-width: 500px) {
+  .info-container .button {
+    width: max-content;
+  }
+}

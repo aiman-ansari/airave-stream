@@ -1,14 +1,15 @@
-.profile-container{
-    display: flex;
-    flex-direction: column;
-    background-color: var(--bg-sidebar-hover);
-    width: 20rem;
-    padding: 1.2rem 1rem;
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-sidebar-hover);
+  width: 20rem;
+  padding: 1.2rem 1rem;
 }
-.text-gray{
-    color: var(--text-white);
+.text-gray {
+  color: var(--text-white);
 }
-.text-small{
-    font-size: 14px;
-    padding-top: 5px;
+.text-small {
+  font-size: 0.9rem;
+  padding-top: 5px;
+  color: var(--text-gray);
 }

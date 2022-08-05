@@ -1,23 +1,21 @@
-:root{
-    --text-primary : var(--primary-color);
-
+:root {
+  --text-primary: var(--primary-color);
+  --bg-icon-container: rgb(19, 18, 18);
 }
-.icon-container{
-    background-color: var(--bg-sidebar);
-    position: absolute;
-    right: 5%;
-    width: 15rem;
-    padding: 0.5rem ;
-    bottom: 18%;
+.icon-container {
+  background-color: var(--bg-icon-container);
+  position: absolute;
+  right: 3%;
+  width: 13rem;
+  padding: 0.5rem;
 }
-.icon-container ul li{
-    padding: 5px;
+.icon-container ul li {
+  padding: 5px;
 }
-.icon-container li span{
-    padding: 0 10px;
-    color: var(--text-white);
+.icon-container li span {
+  padding: 0 10px;
+  color: var(--text-white);
 }
-.icon-container li:hover{
-    background-color: var(--text-primary);
+.icon-container li:hover {
+  background-color: var(--text-primary);
 }
-
