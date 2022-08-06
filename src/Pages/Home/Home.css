@@ -40,7 +40,7 @@
 }
 .videos-div {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
   width: 100%;

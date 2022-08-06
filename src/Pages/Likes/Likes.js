@@ -15,7 +15,7 @@ export const Likes = () => {
         likes.length > 0 ? (
           <>
             <div className='bold-text flex-align-center'>
-              <h4>Liked Vedios</h4>
+              <h4>Liked Videos</h4>
               <div className='bottom-border'></div>
             </div>
             {likes.map((video) => (

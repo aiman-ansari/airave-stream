@@ -9,7 +9,6 @@ export const SinglePlaylist = () => {
   const { playlist, deleteSinglePlaylist, setPlaylist } = usePlaylist();
   const navigate = useNavigate();
   const getSingleVideo = playlist.filter((item) => item._id === _id);
-
   return (
     <div className='like-container'>
       {getSingleVideo.map((item) => item.videos.length > 1) && (
@@ -27,23 +26,23 @@ export const SinglePlaylist = () => {
                   {item.videos.map((video) => (
                     <div className='new' key={video._id}>
                       <>
-                        <div className='hovering'>
-                          <i
-                            className='bi bi-trash'
-                            onClick={() =>
-                              deleteSinglePlaylist(
-                                item._id,
-                                video._id,
-                                setPlaylist
-                              )
-                            }
-                          ></i>
-                        </div>
                         <HorizontalVideo
                           video={video}
                           item={item}
                           isLiked={true}
                         />
+                        <div className='hovering'>
+                          <i
+                            className='bi bi-trash'
+                            onClick={() => {
+                              deleteSinglePlaylist(
+                                item._id,
+                                video._id,
+                                setPlaylist
+                              );
+                            }}
+                          ></i>
+                        </div>
                       </>
                     </div>
                   ))}

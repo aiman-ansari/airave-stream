@@ -40,18 +40,18 @@ export const IconContainer = ({ video, isLiked }) => {
               <></>
             )}
           </li>
-          <li>
-            {isAuthenticated ? (
-              <i
-                class='bi bi-list-ul'
-                onClick={() => setPlaylistModal(true)}
-              ></i>
-            ) : (
-              <i class='bi bi-list-ul' onClick={() => navigate("/login")}></i>
-            )}
-            <span>Save</span>
-            {playlistModal && <PlaylistContainer video={video} />}
-          </li>
+          {isAuthenticated ? (
+            <li onClick={() => setPlaylistModal(true)}>
+              <i class='bi bi-list-ul'></i>
+              <span>Save</span>
+            </li>
+          ) : (
+            <li onClick={() => navigate("/login")}>
+              <i class='bi bi-list-ul'></i>
+              <span>Save</span>
+            </li>
+          )}
+          {playlistModal && <PlaylistContainer video={video} />}
           {isAuthenticated ? (
             watchLater.length > 0 &&
             watchLater.some((item) => item._id === video._id) ? (

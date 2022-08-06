@@ -22,19 +22,13 @@ export const Home = () => {
         <Category />
         <div>
           <div className='bold-text'>
-            <h4>Trending Vedios</h4>
+            <h4>Trending Videos</h4>
             <div className='bottom-border'></div>
           </div>
           <div className='videos-div'>
-            {videos.map((video) => (
-              <div className='card' key={video._id}>
-                {video.isTrending && (
-                  <>
-                    <VideoCard video={video} />
-                  </>
-                )}
-              </div>
-            ))}
+            {videos.map(
+              (video) => video.isTrending && <VideoCard video={video} />
+            )}
           </div>
         </div>
       </div>

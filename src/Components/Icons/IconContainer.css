@@ -1,12 +1,12 @@
 :root {
   --text-primary: var(--primary-color);
-  --bg-icon-container: rgb(26, 25, 25);
+  --bg-icon-container: rgb(19, 18, 18);
 }
 .icon-container {
   background-color: var(--bg-icon-container);
   position: absolute;
-  right: 5%;
-  width: 15rem;
+  right: 3%;
+  width: 13rem;
   padding: 0.5rem;
 }
 .icon-container ul li {

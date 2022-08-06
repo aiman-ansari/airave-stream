@@ -11,6 +11,7 @@ export const History = () => {
     state: { isAuthenticated },
   } = useAuth();
   const { history, deleteHistory, deleteAllHistory } = useHistory();
+  const getHistory = [...history].reverse();
   return (
     <div className='like-container'>
       {isAuthenticated ? (
@@ -18,13 +19,13 @@ export const History = () => {
           <>
             <div className='top-container'>
               <div className='bold-text'>
-                <h4>History Vedios</h4>
+                <h4>History Videos</h4>
                 <div className='bottom-border'></div>
               </div>
               <span onClick={() => deleteAllHistory()}>Clear all</span>
             </div>
 
-            {history.map((video) => (
+            {getHistory.map((video) => (
               <div className='horizonatl-card'>
                 <Link to={`/video/${video._id}`}>
                   <img

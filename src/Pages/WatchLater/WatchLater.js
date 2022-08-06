@@ -14,7 +14,7 @@ export const WatchLater = () => {
         watchLater.length > 0 ? (
           <>
             <div className='bold-text flex-align-center'>
-              <h4>Watchlater Vedios</h4>
+              <h4>Watchlater Videos</h4>
               <div className='bottom-border'></div>
             </div>
             {watchLater.map((video) => (

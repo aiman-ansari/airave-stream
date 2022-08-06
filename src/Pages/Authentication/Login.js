@@ -27,8 +27,7 @@ export const Login = () => {
     }
   };
   const handleTest = () => {
-    setEmail(test.email);
-    setPassword(test.password);
+    handleLoginData(test.email, test.password);
   };
   return (
     <div className='auth-container'>
@@ -63,7 +62,7 @@ export const Login = () => {
             Login
           </button>
           <button
-            className='btn btn-outline-primary'
+            className='btn btn-outline-primary width-100'
             onClick={() => handleTest()}
           >
             Test Login

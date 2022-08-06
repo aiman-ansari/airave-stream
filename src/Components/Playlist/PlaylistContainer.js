@@ -3,7 +3,6 @@ import { usePlaylist } from "../../Context/PlaylistContext";
 import "./PlaylistContainer.css";
 export const PlaylistContainer = ({ video }) => {
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
   const {
     playlist,
     addPlaylist,
@@ -17,9 +16,8 @@ export const PlaylistContainer = ({ video }) => {
     if (title === "") {
       setError("This field cannot be empty");
     } else {
-      addPlaylist(title, description);
+      addPlaylist(title);
       setError("");
-      setDescription("");
       setTitle("");
     }
   };
@@ -33,7 +31,13 @@ export const PlaylistContainer = ({ video }) => {
             <span className='mb-1'>Create new Playlist</span>
           )}
           <span>
-            <i className='bi bi-x' onClick={() => setPlaylistModal(false)}></i>
+            <i
+              className='bi bi-x'
+              onClick={() => {
+                // alert("clicked");
+                setPlaylistModal(false);
+              }}
+            ></i>
           </span>
         </div>
         <div className='playlist-title'>
@@ -78,12 +82,7 @@ export const PlaylistContainer = ({ video }) => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         ></input>
-        <input
-          placeholder='Enter description'
-          className='description'
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        ></input>
+
         <div>
           <div className='text-danger'>{error}</div>
         </div>
